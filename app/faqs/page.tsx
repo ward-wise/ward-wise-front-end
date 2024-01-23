@@ -1,6 +1,6 @@
 export default function FAQs() {
   return (
-    <div className="FAQs">
+    <>
       <h1>Frequently Asked Questions</h1>
 
       <h2>What is a ward?</h2>
@@ -173,6 +173,6 @@ export default function FAQs() {
 
       <h2>I have another question not on this list!</h2>
       <p>Send us an email at wardwisechicago@gmail.com and we&apos;ll do our best to respond!</p>
-    </div>
+    </>
   );
 }
