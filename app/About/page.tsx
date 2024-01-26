@@ -20,7 +20,7 @@ export default function About() {
         <h2 className="text-3xl my-6">About us</h2>
         <p className="mb-8">
           Ward Wise is a breakout group under{" "}
-          <Link href="">Chicago Hack Night</Link>. Our source code is available
+          <Link href="https://chihacknight.org/">Chi Hack Night</Link>. Our source code is available
           on <Link href="https://github.com/ward-wise">GitHub</Link>. We use
           data scraped from the{" "}
           <Link href="https://www.chicago.gov/city/en/depts/obm/provdrs/cap_improve/svcs/cip-archive.html">
@@ -29,36 +29,38 @@ export default function About() {
           by Jake Smith and John C. Ruf.
         </p>
         <h2 className="text-3xl my-6">Ways to get involved</h2>
-        <p className="mb-4">
-          Join the ward-wise channel on the Chi Hack Night Slack to stay up to
-          date with what we&apos;re currently discussing and working on!
-        </p>
-        <p className="mb-4">
-          View our open Github issues related to&nbsp;
-          <Link href="https://github.com/ward-wise/data-analysis/issues">
-            data analysis
-          </Link>
-          &nbsp;and&nbsp;
-          <Link href="https://github.com/ward-wise/alderman-spending-data-viz">
-            data visualizations
-          </Link>
-          . If an issue piques your interest, message us on Slack and we&apos;ll
-          give you the latest status.
-        </p>
-        <p className="mb-4">Help us collect ward contact info.</p>
-        <p className="mb-4">Help with UI and usability testing.</p>
-        <p className="mb-4">
-          Do you have connections? Reach out to organizations that could benefit
-          from using Ward Wise. They may have data analysis needs that we can
-          help them with.
-        </p>
-        <p className="mb-10">
-          Validate image data for&nbsp;
-          <Link href="https://sidewalk-chicago.cs.washington.edu/explore">
-            Project Sidewalk
-          </Link>
-          &nbsp;(not related to us, but they do cool work!)
-        </p>
+        <ul className="list-disc ml-4">
+          <li className="mb-4">
+            Join the ward-wise channel on the <Link href="http://slackme.chihacknight.org/">Chi Hack Night Slack</Link> to stay up to
+            date with what we&apos;re currently discussing and working on!
+          </li>
+          <li className="mb-4">
+            View our open Github issues related to&nbsp;
+            <Link href="https://github.com/ward-wise/data-analysis/issues">
+              data analysis
+            </Link>
+            &nbsp;and&nbsp;
+            <Link href="https://github.com/ward-wise/ward-wise-front-end/issues">
+              data visualizations
+            </Link>
+            . If an issue piques your interest, message us on Slack and we&apos;ll
+            give you the latest status.
+          </li>
+          <li className="mb-4">Help us collect ward contact info.</li>
+          <li className="mb-4">Help with UI and usability testing.</li>
+          <li className="mb-4">
+            Do you have connections? Reach out to organizations that could benefit
+            from using Ward Wise. They may have data analysis needs that we can
+            help them with.
+          </li>
+          <li className="mb-10">
+            Validate image data for&nbsp;
+            <Link href="https://sidewalk-chicago.cs.washington.edu/explore">
+              Project Sidewalk
+            </Link>
+            &nbsp;(not related to us, but they do cool work!)
+          </li>
+        </ul>
       </div>
     </main>
   );

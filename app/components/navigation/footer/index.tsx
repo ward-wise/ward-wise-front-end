@@ -14,7 +14,7 @@ const Navbar = () => {
                   Ward Wise is a collaborative project built by volunteer
                   members of&nbsp;&nbsp;
                   <Link href="https://chihacknight.org/">
-                    Chicago Hack Night
+                    Chi Hack Night
                   </Link>
                   , a civic tech group based in Chicago.
                 </p>
