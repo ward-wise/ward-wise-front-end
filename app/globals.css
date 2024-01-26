@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-a {
-  color: rgb(73, 186, 231);
-  text-decoration: underline;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-}
-
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
