@@ -1,5 +1,5 @@
 import Navbar from "./components/navigation/navbar";
-// import Footer from "./components/navigation/footer";
+import Footer from "./components/navigation/footer";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -18,6 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <body className={inter.className}>
           <Navbar />
           {children}
+          <Footer />
         </body>
       </html>
     </>
