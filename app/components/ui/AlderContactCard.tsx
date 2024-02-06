@@ -1,4 +1,3 @@
-
 //once definitions for types returned from data source(s) are established, we can pull this from there.
 interface wardInfoInterface {
   wardInfo: {
@@ -16,7 +15,6 @@ interface wardInfoInterface {
   };
 }
 
-
 /** AlderContactCard:
  * card listing contact information with alderperson's photo.
  */
@@ -25,27 +23,35 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
 
   return (
     <div className="p-2 rounded-md border-solid border-2 border-black">
-        <h2 className="text-center">{alderperson}</h2>
-        <div className="flex gap-x-2 mt-2">
-            {/* It's OK to leave this an `img` because it's just a statically-sized avatar,
+      <h2 className="text-center">{alderperson}</h2>
+      <div className="flex gap-x-2 mt-2">
+        {/* It's OK to leave this an `img` because it's just a statically-sized avatar,
             regardless of platform */}
-            <img
-            src={`../../../alderpeople/ward_${ward}.png`}
-            alt={alderperson}
-            width={100}
-            height={100}
-            />
-            <div className="grow ">
-                <p>{phone}</p>
-                <p>{email}</p>
-                <p>{address}</p>
-            </div>
-            <div className="flex flex-col">
-                {websites && Object.keys(websites).map(site =>
-                    <a href={websites[site]} key={site}>{site}</a>
-                )}
-            </div>
+        <img
+          src={`../../../alderpeople/ward_${ward}.png`}
+          alt={alderperson}
+          width={100}
+          height={100}
+        />
+        <div className="grow ">
+          <p>{phone}</p>
+          <p>{email}</p>
+          <p>{address}</p>
         </div>
+        <div className="flex flex-col">
+          {websites &&
+            Object.keys(websites).map((site) => (
+              <a
+                href={websites[site]}
+                key={site}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {site}
+              </a>
+            ))}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
