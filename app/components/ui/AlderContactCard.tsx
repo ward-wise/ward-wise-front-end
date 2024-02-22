@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { Phone, Envelope, LocationDot, Globe, FacebookLogo, XLogo, InstagramLogo } from "./SVGIcons";
+
 interface wardInfoInterface {
   wardInfo: {
     ward: number;
@@ -22,8 +24,15 @@ interface wardInfoInterface {
 export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
   const { ward, alderperson, address, email, phone, websites } = wardInfo;
 
+  const webIcons = {
+    website: <Globe />,
+    facebook: <FacebookLogo />,
+    x: <XLogo />,
+    instagram: <InstagramLogo />,
+  };
+
   return (
-    <div className="p-2 rounded-md border-solid border-2 border-black">
+    <div className="p-2 rounded-md border-solid border-2 border-black w-3/4">
       <h2 className="text-center">{alderperson}</h2>
       <div className="flex gap-x-2 mt-2">
         {/* It's OK to leave this an `img` because it's just a statically-sized avatar,
@@ -35,9 +44,9 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
           height={100}
         />
         <div className="grow ">
-          <p>{phone}</p>
-          <p>{email}</p>
-          <p>{address}</p>
+          <p><Phone /> {phone}</p>
+          <p><Envelope /> {email}</p>
+          <p><LocationDot /> {address}</p>
         </div>
         <div className="flex flex-col">
           {websites &&
@@ -48,7 +57,7 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {site}
+                {webIcons[site]}
               </a>
             ))}
         </div>
