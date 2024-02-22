@@ -1,4 +1,3 @@
-//once definitions for types returned from data source(s) are established, we can pull this from there.
 interface wardInfoInterface {
   wardInfo: {
     ward: number;
