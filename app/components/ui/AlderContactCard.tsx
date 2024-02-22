@@ -1,6 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { Phone, Envelope, LocationDot, Globe, FacebookLogo, XLogo, InstagramLogo } from "./SVGIcons";
+import {
+  Phone,
+  Envelope,
+  LocationDot,
+  Globe,
+  FacebookLogo,
+  XLogo,
+  InstagramLogo,
+} from "./SVGIcons";
 
 interface wardInfoInterface {
   wardInfo: {
@@ -44,9 +52,15 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
           height={100}
         />
         <div className="grow ">
-          <p><Phone /> {phone}</p>
-          <p><Envelope /> {email}</p>
-          <p><LocationDot /> {address}</p>
+          <p>
+            <Phone /> {phone}
+          </p>
+          <p>
+            <Envelope /> {email}
+          </p>
+          <p>
+            <LocationDot /> {address}
+          </p>
         </div>
         <div className="flex flex-col">
           {websites &&
