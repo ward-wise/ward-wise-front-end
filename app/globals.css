@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 a {
-  color: rgb(73, 186, 231);
+  /* color: rgb(73, 186, 231); */
   /* text-decoration: underline; */
 }
 

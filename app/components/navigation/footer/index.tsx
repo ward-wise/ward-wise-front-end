@@ -1,33 +1,36 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "../navbar/logo";
+import { GitHubLogo } from "../../ui/SVGIcons";
+import { Hyperlink } from "../../ui/Hyperlink";
 
 const Navbar = () => {
   return (
     <>
       <footer className="w-full bg-slate-800 sticky-bottom">
         <div className="container mx-auto px-4 py-8 h-full">
-          <div className="flex justify-between items-center h-full">
-            <ul className="flex-col text-white">
-              <li>
-                <p>
-                  Ward Wise is a collaborative project built by volunteer
-                  members of&nbsp;&nbsp;
-                  <Link href="https://chihacknight.org/">
-                    Chi Hack Night
+          <div className="flex justify-between items-center h-full text-sm text-white mx-4">
+            <div>
+              <p>
+                Ward Wise is a collaborative project built by volunteers of&nbsp;
+                <Hyperlink href="https://chihacknight.org/">
+                  Chi Hack Night
+                </Hyperlink>
+                , a civic tech group based in Chicago.
+              </p>
+            </div>
+            <div>
+              <ul>
+                <li>
+                  <Link href="https://github.com/ward-wise" className="fill-white">
+                    <GitHubLogo />
                   </Link>
-                  , a civic tech group based in Chicago.
-                </p>
-              </li>
-              <li>
-                <Link href="https://github.com/ward-wise">
-                  <p>Github</p>
-                </Link>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </footer>
+      </footer >
     </>
   );
 };

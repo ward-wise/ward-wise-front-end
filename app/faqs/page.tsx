@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Hyperlink } from "../components/ui/Hyperlink";
 
 export const metadata: Metadata = {
   title: 'FAQs',
@@ -17,9 +18,9 @@ export default function FAQs() {
         years and were last redrawn in 2023.
       </p>
       <p>See the list of wards:</p>
-      <a href="https://www.chicago.gov/city/en/about/wards.html">
+      <Hyperlink href="https://www.chicago.gov/city/en/about/wards.html">
         https://www.chicago.gov/city/en/about/wards.html
-      </a>
+      </Hyperlink>
 
       <h2>What is an alder?</h2>
       <p>
@@ -28,9 +29,9 @@ export default function FAQs() {
         Council.
       </p>
       <p>Learn more about what an alder does:</p>
-      <a href="https://www.citybureau.org/newswire/2023/1/24/what-does-an-alderman-do">
+      <Hyperlink href="https://www.citybureau.org/newswire/2023/1/24/what-does-an-alderman-do">
         https://www.citybureau.org/newswire/2023/1/24/what-does-an-alderman-do
-      </a>
+      </Hyperlink>
 
       <h2>What are aldermanic menu funds?</h2>
       <p>
@@ -54,15 +55,15 @@ export default function FAQs() {
       </p>
       <p>
         Source:{" "}
-        <a href="https://www.participatepbchicago.org/pages/menumoney">
+        <Hyperlink href="https://www.participatepbchicago.org/pages/menumoney">
           PB Chicago
-        </a>
+        </Hyperlink>
       </p>
       <p>
         Alders are provided a{" "}
-        <a href="https://www.wardwisechicago.org/#/menu-items">
+        <Hyperlink href="https://www.wardwisechicago.org/#/menu-items">
           list of standard menue items
-        </a>
+        </Hyperlink>
         they can implement across their ward. They can choose to spend money on
         projects that aren&apos;t on the list too. It is entirely up to
         alders&apos; discretion how and where they spend their menu funds,
@@ -95,9 +96,9 @@ export default function FAQs() {
         growing.
         <br />
         Learn more about participatory budgeting in Chicago here:{" "}
-        <a href="https://www.participatepbchicago.org/pages/pbgeneralinfo">
+        <Hyperlink href="https://www.participatepbchicago.org/pages/pbgeneralinfo">
           https://www.participatepbchicago.org/pages/pbgeneralinfo
-        </a>
+        </Hyperlink>
       </p>
 
       <h2>What is Vision Zero?</h2>
@@ -107,9 +108,9 @@ export default function FAQs() {
         of yearly traffic fatalities down to zero.
         <br />
         You can learn more here:{" "}
-        <a href="https://activetrans.org/our-work/walking/vision-zero">
+        <Hyperlink href="https://activetrans.org/our-work/walking/vision-zero">
           https://activetrans.org/our-work/walking/vision-zero
-        </a>
+        </Hyperlink>
       </p>
 
       <h2>
@@ -139,18 +140,18 @@ export default function FAQs() {
       <p>
         Since 2012, the Chicago Office of Budget and Management has published
         PDFs of itemized aldermanic menu spending to their{" "}
-        <a href="https://www.chicago.gov/city/en/depts/obm/provdrs/cap_improve/svcs/cip-archive.html">
+        <Hyperlink href="https://www.chicago.gov/city/en/depts/obm/provdrs/cap_improve/svcs/cip-archive.html">
           Capital Improvement Archive
-        </a>
+        </Hyperlink>
         . Our site is using raw data extracted from these PDFs by journalist{" "}
-        <a href="https://jakejeromesmith.wordpress.com/">Jake Smith</a>.
+        <Hyperlink href="https://jakejeromesmith.wordpress.com/">Jake Smith</Hyperlink>.
       </p>
       <p>
         Researcher John C. Ruf submitted a FOIA request to get aldermanic
         spending data going back to 2005. Those PDFs are available{" "}
-        <a href="https://github.com/JohnCRuf/alderman_machine/tree/master/tasks/initialdata/output">
+        <Hyperlink href="https://github.com/JohnCRuf/alderman_machine/tree/master/tasks/initialdata/output">
           here
-        </a>
+        </Hyperlink>
         . We hope to incorporate that data into our site in the near future.
       </p>
       <p>
@@ -162,18 +163,18 @@ export default function FAQs() {
       <h2>Can I get involved with Ward Wise?</h2>
       <p>
         Sure! Our data analysis and website source code are{" "}
-        <a href="https://github.com/ward-wise">publicly available on GitHub</a>.
+        <Hyperlink href="https://github.com/ward-wise">publicly available on GitHub</Hyperlink>.
         Ward Wise is a breakout group under{" "}
-        <a href="https://chihacknight.org/">Chi Hack Night</a>. We meet every
+        <Hyperlink href="https://chihacknight.org/">Chi Hack Night</Hyperlink>. We meet every
         Tuesday night.
       </p>
 
       <h2>Do you have new features planned for the site?</h2>
       <p>
         See our{" "}
-        <a href="https://github.com/ward-wise/alderman-spending-data-viz/issues">
+        <Hyperlink href="https://github.com/ward-wise/alderman-spending-data-viz/issues">
           issues list on GitHub
-        </a>
+        </Hyperlink>
         .
       </p>
 

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+import { Hyperlink } from "../components/ui/Hyperlink";
 
 export const metadata: Metadata = {
   title: 'About',
@@ -17,37 +18,37 @@ export default function About() {
           &nbsp;to spend at their discretion on capital improvements in their
           ward. Our group is making menu money spending data more accessible to
           the public and creating tools to help with&nbsp;
-          <Link href="https://www.participatepbchicago.org/pages/pbgeneralinfo">
+          <Hyperlink href="https://www.participatepbchicago.org/pages/pbgeneralinfo">
             participatory budgeting
-          </Link>
+          </Hyperlink>
           &nbsp;processes.
         </p>
         <h2 className="text-3xl my-6">About us</h2>
         <p className="mb-8">
           Ward Wise is a breakout group under{" "}
-          <Link href="https://chihacknight.org/">Chi Hack Night</Link>. Our source code is available
-          on <Link href="https://github.com/ward-wise">GitHub</Link>. We use
+          <Hyperlink href="https://chihacknight.org/">Chi Hack Night</Hyperlink>. Our source code is available
+          on <Hyperlink href="https://github.com/ward-wise">GitHub</Hyperlink>. We use
           data scraped from the{" "}
-          <Link href="https://www.chicago.gov/city/en/depts/obm/provdrs/cap_improve/svcs/cip-archive.html">
+          <Hyperlink href="https://www.chicago.gov/city/en/depts/obm/provdrs/cap_improve/svcs/cip-archive.html">
             Chicago Capital Improvements Archive
-          </Link>{" "}
+          </Hyperlink>{" "}
           by Jake Smith and John C. Ruf.
         </p>
         <h2 className="text-3xl my-6">Ways to get involved</h2>
         <ul className="list-disc ml-4">
           <li className="mb-4">
-            Join the ward-wise channel on the <Link href="http://slackme.chihacknight.org/">Chi Hack Night Slack</Link> to stay up to
+            Join the ward-wise channel on the <Hyperlink href="http://slackme.chihacknight.org/">Chi Hack Night Slack</Hyperlink> to stay up to
             date with what we&apos;re currently discussing and working on!
           </li>
           <li className="mb-4">
             View our open Github issues related to&nbsp;
-            <Link href="https://github.com/ward-wise/data-analysis/issues">
+            <Hyperlink href="https://github.com/ward-wise/data-analysis/issues">
               data analysis
-            </Link>
+            </Hyperlink>
             &nbsp;and&nbsp;
-            <Link href="https://github.com/ward-wise/ward-wise-front-end/issues">
+            <Hyperlink href="https://github.com/ward-wise/ward-wise-front-end/issues">
               data visualizations
-            </Link>
+            </Hyperlink>
             . If an issue piques your interest, message us on Slack and we&apos;ll
             give you the latest status.
           </li>
@@ -60,9 +61,9 @@ export default function About() {
           </li>
           <li className="mb-10">
             Validate image data for&nbsp;
-            <Link href="https://sidewalk-chicago.cs.washington.edu/explore">
+            <Hyperlink href="https://sidewalk-chicago.cs.washington.edu/explore">
               Project Sidewalk
-            </Link>
+            </Hyperlink>
             &nbsp;(not related to us, but they do cool work!)
           </li>
         </ul>
