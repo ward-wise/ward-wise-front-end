@@ -14,7 +14,7 @@ const Navbar = () => {
               <p className="text-white text-2xl ml-1">Ward Wise</p>
               </div>
             </Link>
-            <ul className="flex gap-x-20 text-white">
+            <ul className="flex gap-x-20 mx-8 text-white">
               <li>
                 <Link href="/find-my-ward">
                   <p>Find My Ward</p>

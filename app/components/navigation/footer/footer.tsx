@@ -12,7 +12,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-full text-sm text-white mx-4">
             <div>
               <p>
-                Ward Wise is a collaborative project built by volunteers of&nbsp;
+                Ward Wise is a volunteer project under&nbsp;
                 <Hyperlink href="https://chihacknight.org/">
                   Chi Hack Night
                 </Hyperlink>
