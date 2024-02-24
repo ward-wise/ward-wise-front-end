@@ -10,20 +10,22 @@ import {
   InstagramLogo,
 } from "./SVGIcons";
 
-interface wardInfoInterface {
-  wardInfo: {
-    ward: number;
-    alderperson: string;
-    address: string | null;
-    email: string;
-    phone: string;
-    websites: {
-      website?: string;
-      facebook?: string;
-      x?: string;
-      instagram?: string;
-    } | null;
-  };
+export type wardInfo = {
+  ward: number;
+  alderperson: string;
+  address: string | null;
+  email: string;
+  phone: string;
+  websites: {
+    website?: string;
+    facebook?: string;
+    x?: string;
+    instagram?: string;
+  } | null;
+};
+
+export interface wardInfoInterface {
+  wardInfo: wardInfo;
 }
 
 /** AlderContactCard:
@@ -53,13 +55,19 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
         />
         <div className="grow ">
           <p>
-            <Phone /> {phone}
+            <a href={`tel:${phone}`}>
+              <Phone /> {phone}
+            </a>
           </p>
           <p>
-            <Envelope /> {email}
+            <a href={`mailto:${email}`}>
+              <Envelope /> {email}
+            </a>
           </p>
           <p>
-            <LocationDot /> {address}
+            <a href={address?`https://maps.google.com/?q=${encodeURIComponent(address)}`:''}>
+              <LocationDot /> {address}
+            </a>
           </p>
         </div>
         <div className="flex flex-col">
