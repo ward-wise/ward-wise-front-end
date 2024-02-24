@@ -10,18 +10,20 @@ import {
   InstagramLogo,
 } from "./SVGIcons";
 
+export type WebsiteType = {
+  website?: string;
+  facebook?: string;
+  x?: string;
+  instagram?: string;
+};
+
 export type wardInfo = {
   ward: number;
   alderperson: string;
   address: string | null;
   email: string;
   phone: string;
-  websites: {
-    website?: string;
-    facebook?: string;
-    x?: string;
-    instagram?: string;
-  } | null;
+  websites: WebsiteType | null;
 };
 
 export interface wardInfoInterface {
@@ -74,12 +76,12 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
           {websites &&
             Object.keys(websites).map((site) => (
               <a
-                href={websites[site]}
+                href={websites[site as keyof WebsiteType]}
                 key={site}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {webIcons[site]}
+                {webIcons[site as keyof WebsiteType]}
               </a>
             ))}
         </div>
