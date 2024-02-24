@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 a {
-  color: rgb(73, 186, 231);
-  text-decoration: underline;
+  /* color: rgb(73, 186, 231); */
+  /* text-decoration: underline; */
 }
 
 .footer {

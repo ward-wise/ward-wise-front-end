@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Ward Spending',
+}; 
+
 export default function WardSpending() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
