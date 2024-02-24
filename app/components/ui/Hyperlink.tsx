@@ -4,6 +4,7 @@ export function Hyperlink({ className, href, children }: { className?: string, h
     return (
         <Link
             href={href}
+            // target="_blank" //use to open in new tab
             style={{color: "rgb(73, 186, 231)"}}
             className={`${className || ''}`}
         >
