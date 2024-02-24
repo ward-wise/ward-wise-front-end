@@ -8,8 +8,11 @@ const Navbar = () => {
       <div className="w-full h-20 bg-slate-800 sticky top-0">
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            <Link href="/">
+            <Link href="/" className="flex align-middle">
               <Logo />
+              <div className="flex items-center">
+              <p className="text-white text-2xl ml-1">Ward Wise</p>
+              </div>
             </Link>
             <ul className="flex gap-x-20 text-white">
               <li>
@@ -19,7 +22,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/ward-spending">
-                  <p>View Ward Spending</p>
+                  <p>Ward Spending</p>
                 </Link>
               </li>
               <li>
@@ -29,7 +32,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/alderman-spending-menu">
-                  <p>View Spending Menu</p>
+                  <p>Spending Menu</p>
                 </Link>
               </li>
               <li>
@@ -39,7 +42,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/about">
-                  <p>About the Project</p>
+                  <p>About</p>
                 </Link>
               </li>
             </ul>
