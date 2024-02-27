@@ -2,105 +2,101 @@
 
 import { FormEvent, useState } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { WardGeoLookupData } from "@/app/lib/definitions";
 
+/** WardSearch:
+ * A searchbar for looking up a ward's information from an address.
+ * Calls the Chicago Data Portal ward lookup on form submission,
+ * and updates URL path with ?ward=[ward number] on successful lookup.
+ * Displays errors on failed lookup.
+ */
 export default function WardSearch() {
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const { replace } = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
 
-    const [responseError, setResponseError] = useState<null | string>(null);
+  const [responseError, setResponseError] = useState<null | string>(null);
 
-    /** getWardInfo: query the Chicago Data Portal API for ward info from an address */
-    async function getWardInfo (address: string) {
+  /** getWardInfo: query the Chicago Data Portal API for ward info from an address */
+  async function getWardGeoLookupData(
+    address: string
+  ): Promise<WardGeoLookupData> {
+    const apiURL =
+      "https://api.chicago.gov/els/forwardgeocoding/rest/geocode_3";
 
-        const apiURL = "https://api.chicago.gov/els/forwardgeocoding/rest/geocode_3";
-
-        const requestBody = {
-        "ForwardGeocodeServiceInput3": {
-        "systemId": "WARD_LOOKUP",
-        "offsetFt": "20",
-        "fullAddress": address,
-        "getGeos": {"geographyName": "WARDS_2023"},
-        }
+    const requestBody = {
+      ForwardGeocodeServiceInput3: {
+        systemId: "WARD_LOOKUP",
+        offsetFt: "20",
+        fullAddress: address,
+        getGeos: { geographyName: "WARDS_2023" },
+      },
     };
 
     const headers = {
-        "Authorization": "Basic ZWxzX2NsaWVudF93YXJkZ2VvOnR2S0xANFM2N2Fw",
-        "Content-Type": "application/json"
+      Authorization: "Basic ZWxzX2NsaWVudF93YXJkZ2VvOnR2S0xANFM2N2Fw",
+      "Content-Type": "application/json",
     };
 
     const response = await fetch(apiURL, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(requestBody),
-    })
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(requestBody),
+    });
 
     if (response.status != 200) {
-        setResponseError("Could not reach Ward lookup service");
-        return null;
+      throw new Error("Could not reach Ward lookup service");
     }
-    const data = await response.json();
-    //TODO: remove log
-    console.log(data);
+    const responseJSON = await response.json();
+    const data = responseJSON.ForwardGeocodeServiceOutput3;
 
-    //TODO: Handle Error-checking per block below
-
+    if (data.cleansingStatus != "ACTUAL") {
+      if (!data.cleansingStatusDescription) {
+        throw new Error("Invalid address");
+      }
+      if (data.cleansingStatusDescription === "BADSTREET") {
+        throw new Error("Invalid street");
+      }
+      if (data.cleansingStatusDescription === "BADADDRESSNUM") {
+        throw new Error("Invalid address number");
+      }
+    }
     return data;
-
-  /*
-
-  // Check if the request was successful
-  if (response.statusCode != 200) {
-    throw Exception("Failed to make request");
   }
 
-  final data = jsonDecode(response.body)["ForwardGeocodeServiceOutput3"];
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      address: { value: string };
+    };
 
-  // Handle the response data containing geolocation information
-  if (data["cleansingStatus"] != "ACTUAL") {
-    if (!data.containsKey("cleansingStatusDescription")) {
-      throw Exception("Invalid address");
-    }
-    if (data["cleansingStatusDescription"] == "BADSTREET") {
-      throw Exception("Invalid street");
-    }
-    if (data["cleansingStatusDescription"] == "BADADDRESSNUM") {
-      throw Exception("Invalid address number");
+    try {
+      const wardData = await getWardGeoLookupData(target.address.value);
+      const params = new URLSearchParams(searchParams);
+      //set the current path to path...?ward=[ward number]
+      params.set("ward", wardData.geoValues[0].geographyValue);
+      replace(`${pathname}?${params.toString()}`);
+      setResponseError(null);
+    } catch (error) {
+      setResponseError((error as Error).message);
     }
   }
-
-  final wardNumberText = data["geoValues"][0]["geographyValue"];
-  try {
-    return int.parse(wardNumberText);
-  } catch (e) {
-    throw Exception(
-        "Invalid ward number, expected integer, got $wardNumberText");
-  }
-        */
-    }
-
-    async function handleSubmit(e: FormEvent) {
-        e.preventDefault();
-       const target = e.target as typeof e.target & {
-         address: { value: string };
-       };
-        const wardData = await getWardInfo(target.address.value);
-        const params = new URLSearchParams(searchParams);
-        //TODO: error handling in here? (catch here?) do the params set or delete, per tutorial example
-        params.set("ward", wardData.ForwardGeocodeServiceOutput3.geoValues[0].geographyValue);
-        replace(`${pathname}?${params.toString()}`);
-    }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="address">Find My Ward</label>
-      <input
-        id="address"
-        name="address"
-        placeholder="Enter Address"
-        className="border-2 border-black rounded-md"
-      />
-      <button>Search</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="address" className="block">
+          Find My Ward
+        </label>
+        <input
+          id="address"
+          name="address"
+          placeholder="Enter Address"
+          className="border-2 border-black rounded-md"
+        />
+        <button className="ml-4 border border-black rounded-md">Search</button>
+      </form>
+      {responseError && <p>{responseError}</p>}
+    </>
   );
 }
