@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import WardSearch from "../components/ui/WardSearch";
+
+export const metadata: Metadata = {
+  title: 'Find My Ward',
+};
+
 
 export default function FindMyWard({
   searchParams,

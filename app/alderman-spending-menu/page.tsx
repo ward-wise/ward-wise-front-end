@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Spending Menu',
+};
+
 export default function SpendingMenu() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
