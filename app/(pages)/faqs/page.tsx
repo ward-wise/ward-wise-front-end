@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function FAQs() {
   return (
-    <div className="w-full p-6 md:px-32 lg:px-80">
-      <h1 className="text-4xl mt-8 mb-16">Frequently Asked Questions</h1>
+    <div className="w-full">
+      <h1 className="text-4xl mt-4 lg:mt-8 mb-16">Frequently Asked Questions</h1>
 
 
       <FAQ title={"What is a ward?"}>
@@ -120,7 +120,7 @@ export default function FAQs() {
       <FAQ title={"How can I influence menu funds and infrastructure spending in my ward?"}>
         <p className="mb-4">
           {/* TODO: should link Find My Ward tool here */}
-          Reach out to your ward office! You can use our Find My Ward tool to get their contact information.If
+          Reach out to your ward office! You can use our Find My Ward tool to get their contact information. If
           your ward does participatory budgeting, ask how you can be involved.If
           not, don&apos;t despair! You can still contact your alder to discuss
           your infrastructure idea (and ask them to consider participatory
@@ -194,9 +194,9 @@ export default function FAQs() {
 
 function FAQ({ title, children }: { title: string, children: any }) {
   return (
-    <div className="mb-16 mt-4">
+    <div className="mb-20 mt-4">
       <h2 className="font-bold text-lg">{title}</h2>
-      <div className="ml-6 my-4">
+      <div className="my-2">
         {children}
       </div>
     </div>

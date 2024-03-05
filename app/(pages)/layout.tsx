@@ -18,9 +18,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${inter.className} w-full`}>
           <Navbar />
-          {children}
+          <div className="py-6 px-8 md:px-32 lg:px-80">
+            {children}
+          </div>
           <Footer />
         </body>
       </html>

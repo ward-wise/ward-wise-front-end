@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     // <div className="max-w-2xl mx-auto p-6">
-    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:px-32 lg:px-80">
+    <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="z-10 max-w-5xl w-full justify-between text-md">
         <div className="mb-16">
-          <h2 className="text-3xl my-6">About the project</h2>
+          <h2 className="text-3xl my-4">About the project</h2>
           <p>
             Every year, Chicago alderpersons get $1.5 million in <b>menu money</b>
             &nbsp;to spend at their discretion on capital improvements in their
@@ -26,7 +26,7 @@ export default function About() {
           </p>
         </div>
         <div className="mb-16">
-          <h2 className="text-3xl my-6">About us</h2>
+          <h2 className="text-3xl my-4">About us</h2>
           <p className="mb-8">
             Ward Wise is a breakout group under{" "}
             <Hyperlink href="https://chihacknight.org/">Chi Hack Night</Hyperlink>. Our source code is available
@@ -39,7 +39,7 @@ export default function About() {
           </p>
         </div>
         <div className="mb-16">
-          <h2 className="text-3xl my-6">Ways to get involved</h2>
+          <h2 className="text-3xl my-4">Ways to get involved</h2>
           <ul className="list-disc ml-4">
             <li className="mb-4">
               Join the ward-wise channel on the <Hyperlink href="http://slackme.chihacknight.org/">Chi Hack Night Slack</Hyperlink> to stay up to
