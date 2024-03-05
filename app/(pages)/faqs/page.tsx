@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Hyperlink } from "../components/ui/Hyperlink";
+import { Hyperlink } from "../../components/ui/Hyperlink";
 
 export const metadata: Metadata = {
   title: 'FAQs',

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import WardSearch from "../components/ui/WardSearch";
-import WardSpendingButton from "../components/ui/WardSpendingButton";
+import WardSearch from "../../components/ui/WardSearch";
+import WardSpendingButton from "../../components/ui/WardSpendingButton";
 
 export const metadata: Metadata = {
   title: 'Find My Ward',
