@@ -1,8 +1,15 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "./logo";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <>
       <div className="w-full h-20 bg-slate-800 sticky top-0">
@@ -11,10 +18,13 @@ const Navbar = () => {
             <Link href="/" className="flex align-middle">
               <Logo />
               <div className="flex items-center">
-              <p className="text-white text-2xl ml-1">Ward Wise</p>
+                <p className="text-white text-2xl ml-1">Ward Wise</p>
               </div>
             </Link>
-            <ul className="flex flex-wrap gap-x-20 mx-8 text-white">
+            <div className="lg:hidden cursor-pointer" onClick={toggleMobileMenu}>
+              <MenuIcon/>
+            </div>
+            <ul className="hidden md:flex flex-wrap gap-x-20 mx-8 text-white">
               <li>
                 <Link href="/find-my-ward">
                   <p>Find My Ward</p>
@@ -54,3 +64,19 @@ const Navbar = () => {
 };
 
 export default Navbar;
+function MenuIcon() {
+  return <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    className="h-6 w-6 text-white"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M4 6h16M4 12h16M4 18h16" />
+  </svg>;
+}
+
