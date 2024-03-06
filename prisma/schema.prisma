@@ -14,5 +14,5 @@ model Ward {
   address String?
   email String
   phone String
-  websites Json
+  websites Json?
 }
