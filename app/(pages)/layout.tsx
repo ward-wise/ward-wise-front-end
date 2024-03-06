@@ -1,8 +1,8 @@
-import Navbar from "../components/navigation/navbar/navbar";
-import Footer from "../components/navigation/footer/footer";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navigation from "../components/navigation/navigation";
+import Footer from "../components/navigation/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <html lang="en">
         <body className={`${inter.className} w-full`}>
-          <Navbar />
+          <Navigation/>
           <div className="py-6 px-8 md:px-32 lg:px-80">
             {children}
           </div>
