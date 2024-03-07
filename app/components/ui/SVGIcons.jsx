@@ -1,6 +1,6 @@
 import React from "react";
 
-function Phone() {
+export function Phone() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ function Phone() {
   );
 }
 
-function Envelope() {
+export function Envelope() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@ function Envelope() {
   );
 }
 
-function LocationDot() {
+export function LocationDot() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ function LocationDot() {
   );
 }
 
-function Globe() {
+export function Globe() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ function Globe() {
   );
 }
 
-function XLogo() {
+export function XLogo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
@@ -60,7 +60,7 @@ function XLogo() {
   );
 }
 
-function FacebookLogo() {
+export function FacebookLogo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
@@ -69,7 +69,7 @@ function FacebookLogo() {
   );
 }
 
-function InstagramLogo() {
+export function InstagramLogo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
@@ -78,7 +78,7 @@ function InstagramLogo() {
   );
 }
 
-function GitHubLogo() {
+export function GitHubLogo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" className="w-6 h-6">
       {/*<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
@@ -86,4 +86,36 @@ function GitHubLogo() {
   );
 }
 
-export { Phone, Envelope, LocationDot, Globe, XLogo, FacebookLogo, InstagramLogo, GitHubLogo };
+export function MenuIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      className="h-6 w-6 text-white"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  );
+}
+
+export function CloseIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="36"
+      height="36"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="currentColor"
+        d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+      />
+    </svg>
+  );
+}
