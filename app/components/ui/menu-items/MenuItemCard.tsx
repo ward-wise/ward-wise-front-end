@@ -18,7 +18,7 @@ export default function MenuItemCard({
             <div className="w-1/3">
                 <img src={imgPath} alt={itemName} className="h-full w-full object-cover" />
             </div>
-            <div className="w-2/3 p-4 pl-6">
+            <div className="w-2/3 py-6 pl-6 pr-4">
                 <h2 className="text-xl font-bold">{itemName}</h2>
                 <p className="text-gray-500 mt-2">${unitCost.toLocaleString()} per {unit}</p>
             </div>

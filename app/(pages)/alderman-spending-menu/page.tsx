@@ -1,11 +1,15 @@
 import MenuItemCard from "@/app/components/ui/menu-items/MenuItemCard";
+import { promises as fs } from 'fs';
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'Spending Menu',
 };
 
-export default function SpendingMenu() {
+export default async function SpendingMenu() {
+  const file = await fs.readFile(process.cwd() + '/public/menuItemsInfo.json', 'utf8');
+  const menuItems = JSON.parse(file);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="flex flex-col z-10 max-w-5xl w-full">
@@ -18,13 +22,24 @@ export default function SpendingMenu() {
         <p className='text-center my-6 mt-10 italic'>
           Select an item to learn more.
         </p>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-6">
-          <MenuItemCard itemName="Alley Speed Hump Program" unitCost={1400} unit="block" isVisionZero={true} imgPath="/images/menu-items/AlleySpeedHumpProgram.png" />
-          <MenuItemCard itemName="Alley Speed Hump Program" unitCost={1400} unit="block" isVisionZero={true} imgPath="/images/menu-items/AlleySpeedHumpProgram.png" />
-          <MenuItemCard itemName="Alley Speed Hump Program" unitCost={1400} unit="block" isVisionZero={true} imgPath="/images/menu-items/AlleySpeedHumpProgram.png" />
-          <MenuItemCard itemName="Alley Speed Hump Program" unitCost={1400} unit="block" isVisionZero={true} imgPath="/images/menu-items/AlleySpeedHumpProgram.png" />
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-6 mb-8">
+          {menuItems.map((item: MenuItem) => (
+            <MenuItemCard key={item.menuItem} itemName={item.menuItem} unitCost={item.avgUnitCost} unit={item.unitMeasurement} isVisionZero={item.visionZeroProject} imgPath={`/images/menu-items/${item.imgFilename}`} />
+          ))}
         </div>
+
+
       </div>
     </main>
   );
+}
+
+type MenuItem = {
+  menuItem: string;
+  avgUnitCost: number; 
+  unitMeasurement: string;
+  description: string;
+  notes: string[];
+  visionZeroProject: boolean;
+  imgFilename: string;
 }
