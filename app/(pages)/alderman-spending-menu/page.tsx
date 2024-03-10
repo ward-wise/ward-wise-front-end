@@ -1,4 +1,5 @@
 import MenuItemCard from "@/app/components/ui/menu-items/MenuItemCard";
+import { MenuItem } from "@/app/lib/definitions";
 import { promises as fs } from 'fs';
 import { Metadata } from "next";
 
@@ -19,27 +20,18 @@ export default async function SpendingMenu() {
         <p>
           Each year, CDOT and OBM provide alders a list of standard menu items. Costs are estimated based on previous years&apos; costs. Alders select items from this list to allocate their $1.5 million budget.
         </p>
-        <p className='text-center my-6 mt-10 italic'>
-          Select an item to learn more.
-        </p>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-6 mb-8">
-          {menuItems.map((item: MenuItem) => (
-            <MenuItemCard key={item.menuItem} itemName={item.menuItem} unitCost={item.avgUnitCost} unit={item.unitMeasurement} isVisionZero={item.visionZeroProject} imgPath={`/images/menu-items/${item.imgFilename}`} />
-          ))}
+        <div>
+          <p className='text-center my-6 mt-10 italic'>
+            Select an item to learn more.
+          </p>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-6 mb-8">
+            {menuItems.map((item: MenuItem) => (
+              <MenuItemCard key={item.id} item={item} />
+            ))}
+          </div>
         </div>
-
-
       </div>
     </main>
   );
 }
 
-type MenuItem = {
-  menuItem: string;
-  avgUnitCost: number; 
-  unitMeasurement: string;
-  description: string;
-  notes: string[];
-  visionZeroProject: boolean;
-  imgFilename: string;
-}

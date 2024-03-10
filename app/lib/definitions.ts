@@ -28,3 +28,14 @@ export type WardGeoLookupData = {
   XYSource: string;
   YCoord: number;
 };
+
+export type MenuItem = {
+  name: string;
+  id: string;
+  avgUnitCost: number;
+  unitMeasurement: string;
+  description: string;
+  notes: string[];
+  isVisionZeroProject: boolean;
+  imgFilename: string;
+};
