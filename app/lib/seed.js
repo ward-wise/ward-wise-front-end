@@ -8,6 +8,7 @@ async function main() {
       ward: 47,
       alderperson: "Matt Martin",
       email: "info@ward47.gov",
+      address: "4742 n Clark St.",
       phone: "5555555555",
       websites: undefined,
     }

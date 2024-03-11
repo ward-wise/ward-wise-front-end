@@ -28,3 +28,20 @@ export type WardGeoLookupData = {
   XYSource: string;
   YCoord: number;
 };
+
+
+export type WebsiteType = {
+  website?: string;
+  facebook?: string;
+  x?: string;
+  instagram?: string;
+};
+
+export type WardContactInfo = {
+  ward: number;
+  alderperson: string;
+  address: string | null;
+  email: string;
+  phone: string;
+  websites: WebsiteType | null;
+};
