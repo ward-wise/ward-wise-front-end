@@ -8,7 +8,7 @@ datasource db {
   url = env("DATABASE_URL")
 }
 
-model Ward {
+model ward_contact_info {
   ward Int @id
   alderperson String
   address String?
