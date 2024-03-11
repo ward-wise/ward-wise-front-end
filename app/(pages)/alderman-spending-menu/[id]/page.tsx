@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="flex flex-col z-10 max-w-5xl w-full mb-16">
 
-        <div className="w-full p-2 pb-12">
+        <div className="w-full pb-8">
           <img src={`/images/menu-items/${item.imgFilename}`} alt={item.name} className="h-full w-full object-cover" />
         </div>
 
@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               </p>
             </div>
             {item.isVisionZeroProject &&
-              <div className="ml-auto pr-8 pt-4">
+              <div className="ml-auto pt-4 pl-2 w-1/4">
                 <Image src={`/images/vision_zero_logo.png`} alt="Vision Zero Logo" height={100} width={100} />
               </div>
             }

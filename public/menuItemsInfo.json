@@ -119,7 +119,7 @@
         "unitMeasurement": "half-mile",
         "description": "A Neighborhood Greenway is a low-volume and low-speed street that has been optimized for bicycle travel through treatments such as traffic calming and traffic reduction, roadway signing and pavement markings, and intersection crossing treatments. Neighborhood Greenways take the shared roadway concept to a new level, creating an attractive, comfortable, and convenient cycling environment that caters to cyclist of all ages and abilities. Neighborhood Greenways also benefit pedestrians and adjacent residents by eliminating cut-through motor vehicle traffic.",
         "notes": [
-            "Based upon the number of and intersecting cross-streets prices wilt vary accordingly."
+            "Based upon the number of and intersecting cross-streets prices will vary accordingly."
         ],
         "isVisionZeroProject": true,
         "imgFilename": "NeighborhoodGreenways.png"
@@ -217,7 +217,7 @@
         "name": "Residential Street Traffic Circle",
         "id": "trafficCircle",
         "avgUnitCost": 20000,
-        "unitMeasurement": "Project",
+        "unitMeasurement": "project",
         "description": "Traffic circles are a traffic calming tool designed to reduce vehicular traffic speeds and collisions at residential intersections. A raised island, around which traffic circulates, requires motorists to reduce speed in order to maneuver around the structure. Traffic circles are appropriate for residential intersections. The estimate per project is dependent on intersection dimensions, restoration requirements, and existing utilities. The standard fill for the traffic circle is red stamped colored concrete.",
         "notes": [
             "Based upon the number of utilities that may need to be adjusted, prices will vary accordingly."

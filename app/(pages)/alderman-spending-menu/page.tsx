@@ -18,7 +18,7 @@ export default async function SpendingMenu() {
           Aldermanic Spending Menu
         </h1>
         <p>
-          Each year, CDOT and OBM provide alders a list of standard menu items. Costs are estimated based on previous years&apos; costs. Alders select items from this list to allocate their $1.5 million budget.
+          Each year, CDOT and OBM provide alders a list of standard menu items. Alders select items from this list to allocate their $1.5 million budget. Costs are estimated based on previous years&apos; costs.
         </p>
         <div>
           <p className='text-center my-6 mt-10 italic'>
