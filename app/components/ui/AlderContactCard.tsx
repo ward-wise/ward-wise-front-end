@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from "react";
+import { getWardContactInfo } from "@/app/lib/data";
 import {
   Phone,
   Envelope,
@@ -11,31 +12,12 @@ import {
   InstagramLogo,
 } from "./SVGIcons";
 
-export type WebsiteType = {
-  website?: string;
-  facebook?: string;
-  x?: string;
-  instagram?: string;
-};
-
-export type wardInfo = {
-  ward: number;
-  alderperson: string;
-  address: string | null;
-  email: string;
-  phone: string;
-  websites: WebsiteType | null;
-};
-
-export interface wardInfoInterface {
-  wardInfo: wardInfo;
-}
 
 /** AlderContactCard:
  * card listing contact information with alderperson's photo.
  */
-export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
-  const { ward, alderperson, address, email, phone, websites } = wardInfo;
+export default async function AlderContactCard({ wardNumber }: {wardNumber: number}) {
+  const { ward, alderperson, address, email, phone, websites } = await getWardContactInfo(wardNumber);
 
   const webIcons = {
     website: <Globe />,
