@@ -26,11 +26,12 @@
     {
         "name": "Bike Lane/Marked Shared Lane",
         "id": "paintedBikeLane",
-        "avgUnitCost": 40000,
-        "unitMeasurement": "half-mile",
+        "avgUnitCost": 10000,
+        "unitMeasurement": "block",
         "description": "A Bike Lane is defined as a portion of the roadway that has been designated by striping, signage, and pavement markings for the preferential or exclusive use of bicyclists. Marked shared lanes are generally not appropriate on streets with higher vehicle speeds or multiple travel lanes in each direction. Marked shared lanes are used on streets too narrow for bike lanes but are still good routes for bicyclists. Marked shared lanes alert motorists of the presence of bicyclists, reminds both motorists and bicyclists to properly share the road, and guide bicyclists to ride outside of the door zone of parked vehicles. Marked shared lanes are often used to fill in gaps in the bike lane network when there is not adequate roadway width to accommodate a bike lane in certain segments of a corridor.",
         "notes": [
-            "CDOT retains the final approval for each location."
+            "CDOT retains the final approval for each location.",
+            "CDOT's cost estimate is $40,000 per half-mile. Ward Wise has converted this measurement to the cost-per-block displayed here."
         ],
         "isVisionZeroProject": true,
         "imgFilename": "BikeLaneMarkedSharedLane.png"
@@ -38,11 +39,12 @@
     {
         "name": "Buffered Bike Lane",
         "id": "bufferedBikeLane",
-        "avgUnitCost": 60000,
-        "unitMeasurement": "half-mile",
+        "avgUnitCost": 15000,
+        "unitMeasurement": "block",
         "description": "Buffered bike lanes are conventional bicycle lanes paired with a designated buffer space separating the bicycle lane from the adjacent motor vehicle travel lane and/or parking lane. This extra space provides room for cyclists to pass, ride outside of the door zone, and provides greater shy distance between motor vehicles and bicyclists.",
         "notes": [
-            "CDOT retains the final approval for each location."
+            "CDOT retains the final approval for each location.",
+            "CDOT's cost estimate is $60,000 per half-mile. Ward Wise has converted this measurement to the cost-per-block displayed here."
         ],
         "isVisionZeroProject": true,
         "imgFilename": "BufferedBikeLane.png"
@@ -102,7 +104,7 @@
         "name": "Green Alley",
         "id": "greenAlley",
         "avgUnitCost": 280000,
-        "unitMeasurement": "alley",
+        "unitMeasurement": "alley/block",
         "description": "This program is designed to replace an existing deteriorated unimproved alley in a residential neighborhood and will include the necessary sewer structures to alleviate any drainage problems. Due to the variety and shape of alleys throughout the City, actual estimates will vary accordingly.",
         "notes": [
             "ADA Ramps will be installed where needed to comply with Federally mandated guidelines.",
@@ -115,11 +117,12 @@
     {
         "name": "Neighborhood Greenway",
         "id": "neighborhoodGreenway",
-        "avgUnitCost": 75000,
-        "unitMeasurement": "half-mile",
+        "avgUnitCost": 18750,
+        "unitMeasurement": "block",
         "description": "A Neighborhood Greenway is a low-volume and low-speed street that has been optimized for bicycle travel through treatments such as traffic calming and traffic reduction, roadway signing and pavement markings, and intersection crossing treatments. Neighborhood Greenways take the shared roadway concept to a new level, creating an attractive, comfortable, and convenient cycling environment that caters to cyclist of all ages and abilities. Neighborhood Greenways also benefit pedestrians and adjacent residents by eliminating cut-through motor vehicle traffic.",
         "notes": [
-            "Based upon the number of and intersecting cross-streets prices will vary accordingly."
+            "Based upon the number of and intersecting cross-streets prices will vary accordingly.",
+            "CDOT's cost estimate is $75,000 per half-mile. Ward Wise has converted this measurement to the cost-per-block displayed here."
         ],
         "isVisionZeroProject": true,
         "imgFilename": "NeighborhoodGreenways.png"
@@ -139,12 +142,13 @@
     {
         "name": "Protected Bike Lane",
         "id": "protectedBikeLane",
-        "avgUnitCost": 250000,
-        "unitMeasurement": "half-mile",
+        "avgUnitCost": 62500,
+        "unitMeasurement": "block",
         "description": "A protected bike lane is physically separated from motor vehicle traffic using a physical barrier, such as concrete curb, and is distinct from the sidewalk. Protected bike lanes have different forms, but all share common elements that provide space that is intended to be primarily used for bicycles and are separated from motor vehicle travel lanes. In situations where on-street parking is allowed protected bike lanes are located to the curb-side of the parking (in contrast to bike lanes). If at street level, they can be separated from motor traffic by raised medians, on-street parking, or bollards. By separating cyclists from motor traffic, protected bike lanes can offer a higher level of comfort than bike lanes and are attractive to a wider spectrum of the public. Concrete curb has become the new standard for protected bike lanes.",
         "notes": [
             "CDOT retains the final approval for each location.",
-            "Prices will vary based upon the amount of concrete protection and cross-section of the roadway."
+            "Prices will vary based upon the amount of concrete protection and cross-section of the roadway.",
+            "CDOT's cost estimate is $250,000 per half-mile. Ward Wise has converted this measurement to the cost-per-block displayed here."
         ],
         "isVisionZeroProject": true,
         "imgFilename": "ProtectedBikeLane.png"
@@ -153,7 +157,7 @@
         "name": "Residential Alley Resurfacing",
         "id": "residentialAlleyResurfacing",
         "avgUnitCost": 39425,
-        "unitMeasurement": "alley",
+        "unitMeasurement": "alley/block",
         "description": "This program is for asphalt resurfacing of residential alleys in order to provide a smooth riding surface. This program is not designed or suitable for addressing alley flooding issues. Alleys with flooding and/or drainage problems are addressed by other CDOT programs, such as the Green Alley program. Due to the variety and shape of alleys throughout the City, costs will vary accordingly. Any concrete alleys will be charged at a higher rate due to the higher cost of grinding down concrete",
         "notes": [
             "ADA Ramps will be installed where needed to comply with Federally mandated guidelines as well as concrete alley aprons. These costs will be reflected in the project cost estimate.",
@@ -257,6 +261,7 @@
         "unitMeasurement": "block",
         "description": "This program is designed to reduce vehicular traffic speed on residential streets and will consist of installing raised asphalt \"humps\". No resurfacing will be included as part of this program. CDOT recommends a survey of the affected residents before choosing a location and retains the final approval for each location.",
         "notes": [
+            "Includes 2 street speed humps per project.",
             "Due to the variety and shape of streets throughout the City, actual quantities and prices will vary accordingly.",
             "Streets of irregular length or signalized locations may preclude installation of street speed humps on submitted locations."
         ],
