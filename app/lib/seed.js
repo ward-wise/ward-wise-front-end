@@ -11,10 +11,12 @@ async function main() {
       phone: "5555555555",
       websites: undefined,
     }
-  })
+  });
 
-  const allWardInfo = await prisma.ward_contact_info.findMany();
-  console.dir(allWardInfo, {depth: null});
+  const wardCount = await prisma.ward_contact_info.aggregate({
+    _count: { ward: true }
+  });
+  console.dir(wardCount, { depth: null });
 }
 
 main()
