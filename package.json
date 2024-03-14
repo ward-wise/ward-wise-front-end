@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@prisma/client": "^5.10.2",
+    "@types/csv-parse": "^1.2.2",
+    "csv-parse": "^5.5.5",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
