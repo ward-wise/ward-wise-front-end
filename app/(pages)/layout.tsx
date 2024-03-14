@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <html lang="en">
         <body className={`${inter.className} w-full`}>
           <Navigation/>
-          <div className="py-6 px-6 md:px-32 lg:px-80">
+          <div className="py-6 px-6 md:px-32">
             {children}
           </div>
           <Footer />
