@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from "react";
+import { WebsiteType } from "@/app/lib/definitions";
 import { getWardContactInfo } from "@/app/lib/data";
 import {
   Phone,
