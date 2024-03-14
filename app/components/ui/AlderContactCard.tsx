@@ -13,12 +13,16 @@ import {
   InstagramLogo,
 } from "./SVGIcons";
 
-
 /** AlderContactCard:
  * card listing contact information with alderperson's photo.
  */
-export default async function AlderContactCard({ wardNumber }: {wardNumber: number}) {
-  const { ward, alderperson, address, email, phone, websites } = await getWardContactInfo(wardNumber);
+export default async function AlderContactCard({
+  wardNumber,
+}: {
+  wardNumber: number;
+}) {
+  const { ward, alderperson, address, email, phone, websites } =
+    await getWardContactInfo(wardNumber);
 
   const webIcons = {
     website: <Globe />,
@@ -34,7 +38,7 @@ export default async function AlderContactCard({ wardNumber }: {wardNumber: numb
         {/* It's OK to leave this an `img` because it's just a statically-sized avatar,
             regardless of platform */}
         <img
-          src={`../../../alderpeople/ward_${ward}.png`}
+          src={`../../../images/alderpeople/ward_${ward}.png`}
           alt={alderperson}
           width={100}
           height={100}
@@ -51,7 +55,13 @@ export default async function AlderContactCard({ wardNumber }: {wardNumber: numb
             </a>
           </p>
           <p>
-            <a href={address?`https://maps.google.com/?q=${encodeURIComponent(address)}`:''}>
+            <a
+              href={
+                address
+                  ? `https://maps.google.com/?q=${encodeURIComponent(address)}`
+                  : ""
+              }
+            >
               <LocationDot /> {address}
             </a>
           </p>

@@ -45,3 +45,14 @@ export type WardContactInfo = {
   phone: string;
   websites: WebsiteType | null;
 };
+
+export type MenuItem = {
+  name: string;
+  id: string;
+  avgUnitCost: number;
+  unitMeasurement: string;
+  description: string;
+  notes: string[];
+  isVisionZeroProject: boolean;
+  imgFilename: string;
+};
