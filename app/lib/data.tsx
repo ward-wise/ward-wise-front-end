@@ -12,5 +12,6 @@ export async function getWardContactInfo(ward:number):Promise<WardContactInfo> {
             ward,
         },
     })
+    wardContactInfo.websites = JSON.parse(wardContactInfo.websites);
     return wardContactInfo;
 }
