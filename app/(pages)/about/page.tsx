@@ -11,7 +11,7 @@ export default function About() {
   return (
     // <div className="max-w-2xl mx-auto p-6">
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className="z-10 max-w-5xl w-full justify-between text-md">
+      <div className="z-10 max-w-prose justify-between text-md">
         <div className="mb-16">
           <h2 className="text-3xl my-4">About the project</h2>
           <p>
