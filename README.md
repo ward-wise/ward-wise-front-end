@@ -6,21 +6,24 @@ This is a refactored, reimagined, and expanded implementation of the current [Wa
 
 ## Setup
 
-- Clone/Fork the repo and install dependencies (`npm install`)
+1. Clone/Fork the repo and install dependencies (`npm install`)
 
-- Install [PostgreSQL](https://www.postgresql.org/docs/current/tutorial-install.html), if you do not already have an instance installed
+2. Install [PostgreSQL](https://www.postgresql.org/docs/current/tutorial-install.html), if you do not already have an instance installed.
 
-- run `createdb wardwise` in your terminal
+3. Run `createdb wardwise` in your terminal. 
+> **Note:** If PostgreSQL was not added to your system PATH during installation, you'll need to be in the PostgreSQL `bin` directory for this command to work.
 
-- create a `.env.local` file in your project directory, and add:
+4. Create a `.env.local` file in your project directory and add the below, where USERNAME and PASSWORD are the credential for:
+    * your system user
+    * the user authorized to run Postgres on your machine, or
+    * the **postgres** admin account setup during installation
 ```
 DATABASE_URL="postgresql://USERNAME:PASSWORD@localhost:5432/wardwise?schema=public"
 ```
-where USERNAME and PASSWORD are the credential for your system user/the user authorized to run Postgres on your machine
 
-- run `npm run migrate:dev` to create tables and seed your database
+5. Run `npm run migrate:dev` to create tables and seed your database. If the seeding does not happen automatically, run `npm run db:seed`.
 
-- `npm run dev` to start a development server (located at [http://localhost:3000](http://localhost:3000) by default)
+6. Run `npm run dev` to start a development server (located at [http://localhost:3000](http://localhost:3000) by default)
 
 For additional database management scripts, see `package.json`
 
