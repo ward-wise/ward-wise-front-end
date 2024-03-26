@@ -4,9 +4,8 @@ import WardSpendingButton from "../../components/ui/WardSpendingButton";
 import AlderContactCard from "@/app/components/ui/AlderContactCard";
 
 export const metadata: Metadata = {
-  title: 'Find My Ward',
+  title: "Find My Ward",
 };
-
 
 export default function FindMyWard({
   searchParams,
@@ -21,8 +20,16 @@ export default function FindMyWard({
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <WardSearch />
-        {ward && <AlderContactCard wardNumber={+ward} />}
-        {ward && <WardSpendingButton />}
+        {/* Display Contact Card and Spending Button for valid wards */}
+        {ward && +ward > 0 && +ward <= 50 ? (
+          <>
+            <AlderContactCard wardNumber={+ward} />
+            <WardSpendingButton />
+          </>
+        ) : (
+          <></>
+        )}
+        {/* TODO: Protect for wards <1 >50 */}
       </div>
     </main>
   );

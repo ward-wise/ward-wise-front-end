@@ -21,8 +21,19 @@ export default async function AlderContactCard({
 }: {
   wardNumber: number;
 }) {
+  let wardContactData;
+  try {
+    wardContactData = await getWardContactInfo(wardNumber);
+  } catch (e) {
+    return (
+      <p>
+        Could not fetch Alder Contact Data from database. Try again in a moment.
+      </p>
+    );
+  }
+
   const { ward, alderperson, address, email, phone, websites } =
-    await getWardContactInfo(wardNumber);
+    wardContactData;
 
   const webIcons = {
     website: <Globe />,
