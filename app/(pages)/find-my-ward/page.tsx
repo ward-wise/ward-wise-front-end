@@ -29,7 +29,6 @@ export default function FindMyWard({
         ) : (
           <></>
         )}
-        {/* TODO: Protect for wards <1 >50 */}
       </div>
     </main>
   );
