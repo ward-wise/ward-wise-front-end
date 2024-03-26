@@ -78,6 +78,7 @@ export default function WardSearch() {
       replace(`${pathname}?${params.toString()}`);
       setResponseError(null);
     } catch (error) {
+      replace(`${pathname}`);
       setResponseError((error as Error).message);
     }
   }

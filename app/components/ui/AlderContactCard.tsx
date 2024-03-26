@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from "react";
+import { WebsiteType } from "@/app/lib/definitions";
+import { getWardContactInfo } from "@/app/lib/data";
 import {
   Phone,
   Envelope,
@@ -11,31 +13,27 @@ import {
   InstagramLogo,
 } from "./SVGIcons";
 
-export type WebsiteType = {
-  website?: string;
-  facebook?: string;
-  x?: string;
-  instagram?: string;
-};
-
-export type wardInfo = {
-  ward: number;
-  alderperson: string;
-  address: string | null;
-  email: string;
-  phone: string;
-  websites: WebsiteType | null;
-};
-
-export interface wardInfoInterface {
-  wardInfo: wardInfo;
-}
-
 /** AlderContactCard:
  * card listing contact information with alderperson's photo.
  */
-export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
-  const { ward, alderperson, address, email, phone, websites } = wardInfo;
+export default async function AlderContactCard({
+  wardNumber,
+}: {
+  wardNumber: number;
+}) {
+  let wardContactData;
+  try {
+    wardContactData = await getWardContactInfo(wardNumber);
+  } catch (e) {
+    return (
+      <p>
+        Could not fetch Alder Contact Data from database. Try again in a moment.
+      </p>
+    );
+  }
+
+  const { ward, alderperson, address, email, phone, websites } =
+    wardContactData;
 
   const webIcons = {
     website: <Globe />,
@@ -51,7 +49,7 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
         {/* It's OK to leave this an `img` because it's just a statically-sized avatar,
             regardless of platform */}
         <img
-          src={`../../../alderpeople/ward_${ward}.png`}
+          src={`../../../images/alderpeople/ward_${ward}.png`}
           alt={alderperson}
           width={100}
           height={100}
@@ -68,7 +66,13 @@ export default function AlderContactCard({ wardInfo }: wardInfoInterface) {
             </a>
           </p>
           <p>
-            <a href={address?`https://maps.google.com/?q=${encodeURIComponent(address)}`:''}>
+            <a
+              href={
+                address
+                  ? `https://maps.google.com/?q=${encodeURIComponent(address)}`
+                  : ""
+              }
+            >
               <LocationDot /> {address}
             </a>
           </p>
