@@ -6,13 +6,17 @@ export default function Home() {
         <span className="font-medium text-xl leading-5 pl-2"> Keeping the government accountable</span>
       </h1>
       </section>
-        <article className="flex items-center justify-center my-5 py-10 px-5 shadow-lg rounded-lg gap-4">
+        <article className="flex items-center justify-center my-5 py-10">
           <h2 className=" text-center font-bold text-lg w-6/12 leading-5">What Is A Ward?</h2>
           <p className=" flex-wrap w-7/12 text-sm leading-4 tracking-tight indent-3">The City of Chicago is divided into fifty legislative districts or wards. Each district is represented by an alderperson who is elected by their constituency to serve a four year term.</p>
         </article>
-        <section className="flex flex-wrap flex- items-center justify-center my-5 py-10 px-5 shadow-lg rounded-l">
+        <section className="flex items-center justify-center my-5 py-10">
           <p className="text-lg w-5/12"> $1.5 Million</p>
           <h2 className=" text-center font-bold text-lg w-7/12 leading-5">How Much Funding Does My Ward Get?</h2>
+        </section>
+        <section id="findWard">
+          <h3>Find My Ward?</h3>
+
         </section>
     </main>
   );
