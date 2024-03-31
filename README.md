@@ -2,7 +2,11 @@
 
 This is a refactored, reimagined, and expanded implementation of the current [Ward Wise frontend](https://github.com/ward-wise/alderman-spending-data-viz), built in Next.js.
 
-
+## Low-fidelity Prototype
+Here is a lo-fi paper mockup of the site; consider this a rough place to start from.
+![PXL_20240110_014235957~2](https://github.com/ward-wise/ward-wise-front-end/assets/28895925/e687037f-e2f5-4452-bc0a-c31866e22e38)
+We are planning to make it a single-page scroll website, so the following is the rough layout for the same.
+![PXL_20240110_014252656~2](https://github.com/ward-wise/ward-wise-front-end/assets/28895925/b2f91a6d-076f-40ee-a703-31c23c918973)
 
 ## Setup
 
