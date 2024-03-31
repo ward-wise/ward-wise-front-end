@@ -16,7 +16,7 @@ export default function Home() {
         </article>
         <section className="flex items-center justify-center my-5 py-10 gap-4" id="HowMuch">
           <p className="text-xl lg:text-4xl 2xl:text-5xl w-6/12 text-center"> $1.5 Million</p>
-          <h2 className=" p-2 text-center max-w-6/12 text-sky-400 font-bold text-lg md:text-xl lg:text-4xl 3xl:text-5xl w-7/12 leading-5 border-l-4 lg:border-l-8 border-sky-400">How Much Funding Does My Ward Get?</h2>
+          <h2 className=" p-2 text-center w-7/12 text-sky-400 font-bold text-lg md:text-xl lg:text-4xl 3xl:text-5xl leading-5 border-l-4 lg:border-l-8 border-sky-400">How Much Funding Does My Ward Get?</h2>
         </section>
     </main>
   );
