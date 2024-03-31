@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Hero />
-      <article className="flex items-center justify-center my-5 p-5 gap-4 mt-96" id="WhatIs">
+      <article className="flex items-center justify-center my-5 p-5 gap-4 mt-80" id="WhatIs">
         <h2 className=" h-full text-center lg:text-center font-bold text-lg md:text-2xl lg:text-4xl 3xl:text-5xl w-5/12 leading-5">What Is A Ward?</h2>
         <p className=" p-4 text-left flex-wrap w-6/12 text-sm lg:text-xl 2xl:text-2xl lg:leading-6 leading-4 tracking-tight border-l-4 lg:border-l-8 border-sky-400">The City of Chicago is divided into fifty legislative districts called wards. Each ward is represented by an alderperson who is elected by their constituency to manage their ward's budget and perform other civic duties.</p>
       </article>
