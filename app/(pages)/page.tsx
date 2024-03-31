@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <section className="flex items-center justify-center flex-col w-screen min-h-60 p-10 bg-sky-100" id="hero">
-      <h1 className="font-semibold text-6xl text-sky-400 flex flex-col justify-around m-1">Ward Wise
-        <span className="font-medium text-xl text-black leading-5 pl-2"> Keeping the government accountable</span>
+      <h1 className="font-semibold text-4xl lg:text-7xl  text-sky-400 flex flex-col justify-around m-1">Ward Wise
+        <span className="font-medium text-xl lg:text-4xl text-black leading-5 pl-2"> Keeping the government accountable</span>
       </h1>
       </section>
         <article className="flex items-center justify-center my-5 p-5 gap-4" id="WhatIs">
