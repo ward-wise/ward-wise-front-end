@@ -1,9 +1,8 @@
 "use client";
-import { MapContainer, TileLayer, Marker, useMapEvents, Popup, GeoJSON } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
-import test from "node:test";
 
 const testGeoJson: any = {
     "type": "FeatureCollection",
@@ -25,6 +24,22 @@ const testGeoJson: any = {
     ]
 };
 
+function onEachFeature(feature: any, layer: any) {
+    if (feature.properties) {
+        const { item, year, cost, ward } = feature.properties;
+        let formattedCost = new Intl.NumberFormat('en-US').format(Math.round(cost));
+        layer.bindTooltip(`${item}<br>Ward ${ward} - ${year}<br>$${formattedCost}`, {
+            sticky: true,
+        });
+
+        // layer.on({
+        //     click: () => {},
+        //     mouseover: highlightFeature,
+        //     mouseout: resetHighlight,
+        // });
+    }
+}
+
 const Map = () => {
 
     return (
@@ -36,10 +51,13 @@ const Map = () => {
             style={{ height: "50vh" }}
         >
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+                url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
             />
-            <GeoJSON data={testGeoJson}/>
+            <GeoJSON
+                data={testGeoJson}
+                onEachFeature={onEachFeature}
+            />
         </MapContainer>
     );
 };

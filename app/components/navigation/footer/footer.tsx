@@ -7,7 +7,7 @@ import { Hyperlink } from "../../ui/Hyperlink";
 const Navbar = () => {
   return (
     <>
-      <footer className="w-full bg-slate-800 sticky-bottom">
+      <footer className="w-full bg-slate-800 sticky-bottom mt-auto">
         <div className="container mx-auto px-4 py-8 h-full">
           <div className="flex justify-between items-center h-full text-sm text-white mx-4">
             <div>
