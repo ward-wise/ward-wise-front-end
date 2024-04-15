@@ -47,8 +47,7 @@ const Map = () => {
             center={[41.91946055, -87.69612918]}
             zoom={13}
             scrollWheelZoom={false}
-            attributionControl={false}
-            style={{ height: "50vh" }}
+            style={{ height: "70vh" }}
         >
             <TileLayer
                 attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'

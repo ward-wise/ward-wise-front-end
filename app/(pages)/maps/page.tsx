@@ -1,9 +1,14 @@
 import { Metadata } from "next"
-import Map from "./Map";
+import dynamic from 'next/dynamic'
 
 export const metadata: Metadata = {
   title: 'Maps',
 };
+
+// SSR must be disabled explicity or webpack throws a reference error
+const Map = dynamic(() => import('./Map'), {
+  ssr: false,
+})
 
 export default function Maps() {
   return (
