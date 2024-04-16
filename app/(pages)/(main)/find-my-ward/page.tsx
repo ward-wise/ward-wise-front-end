@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import WardSearch from "../../components/ui/WardSearch";
-import WardSpendingButton from "../../components/ui/WardSpendingButton";
+import WardSearch from "@/app/components/ui/WardSearch";
+import WardSpendingButton from "@/app/components/ui/WardSpendingButton";
 import AlderContactCard from "@/app/components/ui/AlderContactCard";
 
 export const metadata: Metadata = {

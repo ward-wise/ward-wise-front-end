@@ -1,7 +1,7 @@
 import Link from "next/link";
-import WardSearch from "../components/ui/WardSearch";
+import WardSearch from "@/app/components/ui/WardSearch";
 import FindMyWard from "./find-my-ward/page";
-import Hero from "../components/ui/Hero";
+import Hero from "@/app/components/ui/Hero";
 
 export default function Home() {
   return (

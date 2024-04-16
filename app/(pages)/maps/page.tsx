@@ -12,8 +12,8 @@ const Map = dynamic(() => import('./Map'), {
 
 export default function Maps() {
   return (
-    <main className="flex flex-grow flex-col items-center justify-between">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
+    <main className="flex flex-col items-center justify-between h-full">
+      <div className="z-10 w-full items-center justify-between font-mono text-sm h-full">
         <Map/>
       </div>
     </main>
