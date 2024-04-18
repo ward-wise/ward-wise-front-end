@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
+import { useState } from "react";
 
 const testGeoJson: any = {
     "type": "FeatureCollection",
@@ -24,40 +25,62 @@ const testGeoJson: any = {
     ]
 };
 
-function onEachFeature(feature: any, layer: any) {
-    if (feature.properties) {
-        const { item, year, cost, ward } = feature.properties;
-        let formattedCost = new Intl.NumberFormat('en-US').format(Math.round(cost));
-        layer.bindTooltip(`${item}<br>Ward ${ward} - ${year}<br>$${formattedCost}`, {
-            sticky: true,
-        });
-
-        // layer.on({
-        //     click: () => {},
-        //     mouseover: highlightFeature,
-        //     mouseout: resetHighlight,
-        // });
-    }
-}
 
 const Map = () => {
 
+    const[selectedFeature, setSelectedFeature] = useState(null);
+
+    function onEachFeature(feature: any, layer: any) {
+        if (feature.properties) {
+            const { item, year, cost, ward } = feature.properties;
+            let formattedCost = new Intl.NumberFormat('en-US').format(Math.round(cost));
+            layer.bindTooltip(`${item}<br>Ward ${ward} - ${year}<br>$${formattedCost}`, {
+                sticky: true,
+            });
+
+            layer.on({
+                click: () => {
+                    setSelectedFeature(feature.properties);
+                }
+            });
+        }
+    }
+
     return (
-        <MapContainer
-            center={[41.91946055, -87.69612918]}
-            zoom={13}
-            style={{ height: "100%", width:"100%" }}
-        >
-            <TileLayer
-                attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-                url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
-            />
-            <GeoJSON
-                data={testGeoJson}
-                onEachFeature={onEachFeature}
-            />
-        </MapContainer>
-    );
+        <>
+            <div className="w-full h-full z-0">
+                <MapContainer
+                    center={[41.91946055, -87.69612918]}
+                    zoom={13}
+                    zoomControl={false}
+                    style={{ height: "100%", width: "100%", zIndex: 0 }}
+                >
+                    <TileLayer
+                        attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+                        url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+                    />
+                    <GeoJSON
+                        data={testGeoJson}
+                        onEachFeature={onEachFeature}
+                    />
+                </MapContainer>
+            </div>
+            {selectedFeature && <ProjectCard project={selectedFeature} /> }
+        </>
+    )
+};
+export const ProjectCard = ({project}: {project: any}) => {
+
+    return (
+        <div className="flex flex-col w-full bg-white shadow-xl rounded-t-lg md:rounded-lg p-6 absolute bottom-0 z-50 md:bottom-10 md:left-10 md:w-1/4" >
+            <h2 className="font-bold text-lg">{project.item}</h2>
+            <div className="flex text-md py-2">
+            <p>Ward {project.ward} - {project.year}</p>
+            <p className="ml-auto font-bold text-lime-700">${new Intl.NumberFormat('en-US').format(Math.round(project.cost))}</p>
+            </div>
+            <p className="pt-4">{project.location}</p>
+        </div>
+    )
 };
 
 export default Map;
