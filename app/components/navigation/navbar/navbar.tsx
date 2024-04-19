@@ -8,7 +8,7 @@ export default function Navbar({ toggle, menuItems }: { toggle: () => void, menu
   return (
     <>
       <div className="w-full h-20 bg-slate-800 sticky top-0 z-40">
-        <div className="container mx-auto px-4 h-full">
+        <div className="lg:container mx-auto px-8 h-full">
           <div className="flex justify-between items-center h-full">
             <Link href="/" className="flex align-middle">
               <Logo />
@@ -16,10 +16,10 @@ export default function Navbar({ toggle, menuItems }: { toggle: () => void, menu
                 <p className="text-white text-2xl ml-1">Ward Wise</p>
               </div>
             </Link>
-            <button className="lg:hidden cursor-pointer" onClick={toggle}>
+            <button className="md:hidden cursor-pointer" onClick={toggle}>
               <MenuIcon />
             </button>
-            <ul className="hidden md:flex flex-wrap gap-x-20 mx-8 text-white">
+            <ul className="hidden md:flex gap-x-8 lg:gap-x-20 mx-4 text-white">
               {menuItems.map((item, index) => (
                 <li key={index}>
                   <Link href={item.path}>
