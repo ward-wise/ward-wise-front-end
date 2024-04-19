@@ -28,15 +28,20 @@ const testGeoJson: any = {
 
 const Map = () => {
 
-    const[selectedFeature, setSelectedFeature] = useState(null);
+    const [selectedFeature, setSelectedFeature] = useState(null);
 
     function onEachFeature(feature: any, layer: any) {
         if (feature.properties) {
-            const { item, year, cost, ward } = feature.properties;
-            let formattedCost = new Intl.NumberFormat('en-US').format(Math.round(cost));
-            layer.bindTooltip(`${item}<br>Ward ${ward} - ${year}<br>$${formattedCost}`, {
-                sticky: true,
-            });
+
+            // bind the tooltip only if it's a desktop viewport
+            const isDesktop = window.innerWidth > 768;
+            if (isDesktop) {
+                const { item, year, cost, ward } = feature.properties;
+                let formattedCost = new Intl.NumberFormat('en-US').format(Math.round(cost));
+                layer.bindTooltip(`${item}<br>Ward ${ward} - ${year}<br>$${formattedCost}`, {
+                    sticky: true,
+                });
+            }
 
             layer.on({
                 click: () => {
@@ -65,18 +70,18 @@ const Map = () => {
                     />
                 </MapContainer>
             </div>
-            {selectedFeature && <ProjectCard project={selectedFeature} /> }
+            {selectedFeature && <ProjectCard project={selectedFeature} />}
         </>
     )
 };
-export const ProjectCard = ({project}: {project: any}) => {
+export const ProjectCard = ({ project }: { project: any }) => {
 
     return (
         <div className="flex flex-col w-full bg-white shadow-xl rounded-t-lg md:rounded-lg p-6 absolute bottom-0 z-50 md:bottom-10 md:left-10 md:w-1/4" >
             <h2 className="font-bold text-lg">{project.item}</h2>
             <div className="flex text-md py-2">
-            <p>Ward {project.ward} - {project.year}</p>
-            <p className="ml-auto font-bold text-lime-700">${new Intl.NumberFormat('en-US').format(Math.round(project.cost))}</p>
+                <p>Ward {project.ward} - {project.year}</p>
+                <p className="ml-auto font-bold text-lime-700">${new Intl.NumberFormat('en-US').format(Math.round(project.cost))}</p>
             </div>
             <p className="pt-4">{project.location}</p>
         </div>
