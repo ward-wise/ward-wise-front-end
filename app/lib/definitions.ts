@@ -29,6 +29,10 @@ export type WardGeoLookupData = {
   YCoord: number;
 };
 
+export type gpsCoordinates = {
+  latitude: number;
+  longitude: number;
+}
 
 export type WebsiteType = {
   website?: string;

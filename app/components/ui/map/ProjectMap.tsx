@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import dynamic from "next/dynamic";
+import AddressSearchBar from "./AddressSearchBar";
 
 
 // SSR must be disabled explicity or webpack throws a reference error
@@ -28,7 +29,7 @@ export default function ProjectMap({ geoJSON }: { geoJSON: any }) {
 
             layer.on({
                 click: () => {
-                    setSelectedFeature(feature.properties); 
+                    setSelectedFeature(feature.properties);
                 }
             });
         }
@@ -36,8 +37,9 @@ export default function ProjectMap({ geoJSON }: { geoJSON: any }) {
 
     return (
         <>
+            <AddressSearchBar />
             <div className="w-full h-full z-0">
-                <Map geoJSON={geoJSON} onEachFeature={onEachFeature} center={[41.91946055, -87.69612918]} zoomLevel={14}/>
+                <Map geoJSON={geoJSON} onEachFeature={onEachFeature} center={[41.91946055, -87.69612918]} zoomLevel={14} />
             </div>
             {selectedFeature && <ProjectCard project={selectedFeature} />}
         </>
