@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { getAddressGeocodeData } from "@/app/lib/maps";
 
@@ -10,7 +10,7 @@ import { getAddressGeocodeData } from "@/app/lib/maps";
  * and updates URL path with ?lat=&long= on successful lookup.
  * Displays errors on failed lookup.
  */
-export default function GeoCoordinateSearch() {
+export default function GeoCoordinateSearch({map}: {map?: any}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -25,13 +25,15 @@ export default function GeoCoordinateSearch() {
 
     try {
       const coords = await getAddressGeocodeData(target.address.value);
-      console.log("Got coordinates:", coords)
       const params = new URLSearchParams(searchParams);
       params.set("lat", coords.latitude.toString());
       params.set("long", coords.longitude.toString());
-      console.log("setting params:", params)
       replace(`${pathname}?${params.toString()}`);
       setResponseError(null);
+
+      if(map)
+        map.setView([coords.longitude, coords.latitude], 16);
+
     } catch (error) {
       replace(`${pathname}`);
       setResponseError((error as Error).message);
