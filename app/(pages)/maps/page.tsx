@@ -1,4 +1,4 @@
-import ProjectMap from "@/app/components/ui/map/ProjectMap";
+import dynamic from "next/dynamic";
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -24,6 +24,11 @@ const testGeoJson: any = {
     { "type": "Feature", "properties": { "ward": "1", "item": "Alley Speed Hump Replacement", "location": "N ARTESIAN AVE & W WABANSIA AVE & W NORTH AVE & N CAMPBELL AVE; 1614 N ARTESIAN AVE", "cost": "0", "year": "2019", "category": "Alleys" }, "geometry": { "type": "Polygon", "coordinates": [[[-87.689708802129701, 41.912113175861144], [-87.688483450202583, 41.912123357243388], [-87.688442519456046, 41.910305751322412], [-87.689667093060308, 41.91029414143199], [-87.689708802129701, 41.912113175861144]]] } }
   ]
 };
+
+// SSR must be disabled explicity or webpack throws a reference error (non-breaking)
+const ProjectMap = dynamic(() => import("@/app/components/ui/map/ProjectMap"), {
+  ssr: false,
+});
 
 export default function Maps({
   searchParams,

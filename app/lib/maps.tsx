@@ -12,7 +12,6 @@ apiUrl.searchParams.append("state", "IL");
 apiUrl.searchParams.append("benchmark", "Public_AR_Current");
 apiUrl.searchParams.append("format", "json");
 
-console.log(apiUrl);
 const response = await fetch(apiUrl, {method: "GET"});
 
 if (response.status != 200)
