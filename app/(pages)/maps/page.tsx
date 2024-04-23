@@ -25,11 +25,15 @@ const testGeoJson: any = {
   ]
 };
 
-export default function Maps() {
+export default function Maps({
+  searchParams,
+}: {
+    searchParams?: { lat?: string; long?: string };
+}) {
   return (
     <main className="flex flex-col items-center justify-between h-full">
       <div className="w-full items-center justify-between text-sm h-full">
-        <ProjectMap geoJSON={testGeoJson}/>
+        <ProjectMap geoJSON={testGeoJson} latitude={searchParams?.lat} longitude={searchParams?.long} />
       </div>
     </main>
   );

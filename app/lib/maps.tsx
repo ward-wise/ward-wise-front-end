@@ -25,8 +25,8 @@ if (data.addressMatches.length == 0)
     throw new Error("No address match found")
 
 let coords: gpsCoordinates = {
-    latitude: data.addressMatches[0].coordinates.x,
-    longitude: data.addressMatches[0].coordinates.y
+    longitude: data.addressMatches[0].coordinates.x,
+    latitude: data.addressMatches[0].coordinates.y,
 };
 
 return coords;

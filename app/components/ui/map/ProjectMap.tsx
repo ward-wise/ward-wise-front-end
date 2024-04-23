@@ -17,16 +17,18 @@ const defaultCoords = [41.91946055, -87.69612918];
 
 export default function ProjectMap({
     geoJSON,
-    searchParams,
+    latitude,
+    longitude,
 }: {
     geoJSON: any;
-    searchParams?: { lat?: string; long?: string };
+    latitude?: string; 
+    longitude?: string;
 }) {
     const [selectedFeature, setSelectedFeature] = useState(null);
     //If there are search params for the centering coordinates, use them
     const [lat, long] =
-        searchParams?.lat && searchParams?.long
-            ? [+searchParams.lat, +searchParams.long]
+        latitude && longitude
+            ? [+latitude, +longitude]
             : defaultCoords;
 
     const [map, setMap] = useState<any>(null)

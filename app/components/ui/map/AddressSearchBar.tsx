@@ -32,7 +32,7 @@ export default function GeoCoordinateSearch({map}: {map?: any}) {
       setResponseError(null);
 
       if(map)
-        map.setView([coords.longitude, coords.latitude], 16);
+        map.setView([coords.latitude, coords.longitude], 16);
 
     } catch (error) {
       replace(`${pathname}`);
