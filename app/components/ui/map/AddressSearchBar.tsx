@@ -3,6 +3,7 @@
 import { FormEvent, useCallback, useState } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { getAddressGeocodeData } from "@/app/lib/maps";
+import { SearchIcon } from "../SVGIcons";
 
 /** GeoCoordinateSearch:
  * A search bar for looking up GPS coordinates from an address.
@@ -46,11 +47,12 @@ export default function GeoCoordinateSearch({map}: {map?: any}) {
         <input
           id="address"
           name="address"
-          placeholder="Enter Address"
-          className="border-1 border-gray-400 p-3 w-3/4 rounded-md shadow-lg"
+          type="search"
+          placeholder="Search Address"
+          className="border-1 border-gray-400 p-3 flex-grow focus:outline-none rounded-md shadow-lg"
         />
-        <button className="ml-4 p-3 shadow-lg bg-sky-500 text-white font-bold rounded-md text-center">
-          Search
+        <button className="ml-4 p-3 shadow-lg bg-sky-500 fill-white rounded-md">
+          <SearchIcon/>
         </button>
       </form>
       {responseError && (
