@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import {WardSelect, YearSelect} from "../../components/ward-spending/filters";
+import { WardSelect, YearSelect } from "@/app/components/ward-spending/filters";
 
 export const metadata: Metadata = {
   title: 'Ward Spending',

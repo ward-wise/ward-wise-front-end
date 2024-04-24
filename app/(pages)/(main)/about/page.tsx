@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
-import { Hyperlink } from "../../components/ui/Hyperlink";
+import { Hyperlink } from "@/app/components/ui/Hyperlink";
 
 export const metadata: Metadata = {
   title: 'About',

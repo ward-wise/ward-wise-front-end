@@ -19,12 +19,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <html lang="en">
-        <body className={`${inter.className} w-full`}>
-          <Navigation/>
-          <div className="py-6 px-6 md:px-32">
-            {children}
-          </div>
-          <Footer />
+        <body className={`${inter.className} w-full h-full flex flex-col`}>
+          {children}
         </body>
       </html>
     </>
