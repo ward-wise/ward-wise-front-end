@@ -60,3 +60,13 @@ export type MenuItem = {
   isVisionZeroProject: boolean;
   imgFilename: string;
 };
+
+export type WardSpendingItem = {
+  id: number;
+  ward: number;
+  year: number;
+  item: string;
+  category: string;
+  location: string;
+  cost: number;
+}
