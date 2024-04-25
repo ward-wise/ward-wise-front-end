@@ -17,7 +17,9 @@
   "dependencies": {
     "@prisma/client": "^5.10.2",
     "@types/csv-parse": "^1.2.2",
+    "@types/d3": "^7.4.3",
     "csv-parse": "^5.5.5",
+    "d3": "^7.9.0",
     "dotenv-cli": "^7.4.1",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
