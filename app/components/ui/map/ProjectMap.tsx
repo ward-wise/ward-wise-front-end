@@ -13,24 +13,16 @@ import "leaflet-defaulticon-compatibility";
 //   ssr: false,
 // });
 
-const defaultCoords = [41.91946055, -87.69612918];
-
 export default function ProjectMap({
     geoJSON,
     latitude,
     longitude,
 }: {
     geoJSON: any;
-    latitude?: string; 
-    longitude?: string;
+    latitude: number; 
+    longitude: number;
 }) {
     const [selectedFeature, setSelectedFeature] = useState(null);
-    //If there are search params for the centering coordinates, use them
-    const [lat, long] =
-        latitude && longitude
-            ? [+latitude, +longitude]
-            : defaultCoords;
-
     const [map, setMap] = useState<any>(null)
 
     function onEachFeature(feature: any, layer: any) {
@@ -63,7 +55,7 @@ export default function ProjectMap({
             <AddressSearchBar map={map} />
             <div className="w-full h-full z-0">
                 <MapContainer
-                    center={[lat, long]}
+                    center={[latitude, longitude]}
                     zoom={16}
                     zoomControl={false}
                     style={{ height: "100%", width: "100%", zIndex: 0 }}
