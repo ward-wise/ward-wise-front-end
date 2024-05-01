@@ -1,5 +1,5 @@
 "use client";
-import { Ref, useState } from "react";
+import { Ref, useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import AddressSearchBar from "./AddressSearchBar";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
@@ -23,7 +23,15 @@ export default function ProjectMap({
     longitude: number;
 }) {
     const [selectedFeature, setSelectedFeature] = useState(null);
-    const [map, setMap] = useState<any>(null)
+    const [map, setMap] = useState<any>(null);
+
+    const geoJsonLayer: any = useRef(null);
+    useEffect(() => {
+        if (geoJsonLayer.current) {
+            geoJsonLayer.current.clearLayers().addData(geoJSON);
+        }
+    }, [geoJSON]);
+
 
     function onEachFeature(feature: any, layer: any) {
         if (feature.properties) {
@@ -66,6 +74,7 @@ export default function ProjectMap({
                         url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
                     />
                     <GeoJSON
+                        ref={geoJsonLayer}
                         data={geoJSON}
                         onEachFeature={onEachFeature}
                     />
