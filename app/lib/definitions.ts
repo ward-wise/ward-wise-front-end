@@ -70,3 +70,8 @@ export type WardSpendingItem = {
   location: string;
   cost: number;
 }
+
+export type SpendingItemTotal = {
+  category: string;
+  total: number
+}
