@@ -15,15 +15,15 @@ export default async function WardSpending({
 }: {
   searchParams?: {
     ward?: string;
-    year?: string
+    year?: string;
   };
 }) {
+  const ward = searchParams?.ward ? +searchParams.ward : 1;
+  const year = searchParams?.year ? +searchParams.year : 2023;
+  const max = year > 2021 ? 1500000 : 1320000;
 
-  const ward = searchParams?.ward ? +searchParams.ward : 1
-  const year = searchParams?.year ? +searchParams.year : 2023
-
-
-  const data = await getSpendingItemTotals(47, 2021);
+  const wardSpendingTotals = await getSpendingItemTotals(ward, year);
+  const wardSpendingItems = await getWardSpendingItems(ward, year);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -32,7 +32,14 @@ export default async function WardSpending({
           <WardSelect />
           <YearSelect />
         </div>
-        <DataVis ward={ward} year={year}/>
+        {/* TODO: wrap this in suspense? */}
+        <DataVis
+          totals={wardSpendingTotals}
+          max={max}
+          spendingItems={wardSpendingItems}
+          ward={ward}
+          year={year}
+        />
       </div>
     </main>
   );
