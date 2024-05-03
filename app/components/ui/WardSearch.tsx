@@ -93,7 +93,7 @@ export default function WardSearch() {
           id="address"
           name="address"
           placeholder="Enter Address"
-          className="border-2 border-black rounded-md"
+          className="border-2 border-black rounded-md w-3/4"
         />
         <button className="ml-4 border border-black rounded-md">Search</button>
       </form>
