@@ -1,14 +1,12 @@
 "use server";
 
+import prisma from "./client";
+
 import {
   WardContactInfo,
   WardSpendingItem,
   SpendingItemTotal,
 } from "./definitions";
-
-const { PrismaClient } = require("@prisma/client");
-
-const prisma = new PrismaClient();
 
 // WARD CONTACT INFO ***********************************
 
@@ -28,12 +26,14 @@ export async function getWardContactInfo(
 
 export async function getWardSpendingItems(
   ward: number,
-  year: number
+  year: number,
+  category: string | undefined
 ): Promise<WardSpendingItem[]> {
   const spendingItems = await prisma.ward_spending_item.findMany({
     where: {
       ward,
       year,
+      category
     },
   });
   return spendingItems;
@@ -43,7 +43,7 @@ export async function getSpendingItemTotals(
   ward: number,
   year: number
 ): Promise<SpendingItemTotal[]> {
-  const spendingItemTotals = await prisma.$queryRaw`
+  const spendingItemTotals: SpendingItemTotal[] = await prisma.$queryRaw`
     SELECT SUM(cost) AS total, category
     FROM ward_spending_item
     WHERE ward = ${ward} AND year = ${year}
