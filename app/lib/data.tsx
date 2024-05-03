@@ -27,7 +27,7 @@ export async function getWardContactInfo(
 export async function getWardSpendingItems(
   ward: number,
   year: number,
-  category: string | undefined
+  category?: string | undefined
 ): Promise<WardSpendingItem[]> {
   const spendingItems = await prisma.ward_spending_item.findMany({
     where: {
