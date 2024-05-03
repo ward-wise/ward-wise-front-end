@@ -51,7 +51,7 @@ function Bars({
   data: { category: string; total: number }[];
   scaleX: ScaleLinear<number, number, never>;
   scaleY: ScaleBand<string>;
-  setShowCategory: (Dispatch<SetStateAction<string | null>>);
+  setShowCategory: Dispatch<SetStateAction<string | null>>;
 }) {
   return (
     <>
@@ -66,8 +66,8 @@ function Bars({
             height={scaleY.bandwidth()}
             fill="teal"
           />
-          <text x={scaleX(total) + 6} y={(scaleY(category) as number) + 16}>
-            {total}
+          <text x={scaleX(total) + 6} y={(scaleY(category) as number) + scaleY.bandwidth()/2 + 4}>
+            ${total.toLocaleString()}
           </text>
         </g>
       ))}
@@ -84,7 +84,7 @@ export default function WardSpendingChart({
   data: { category: string; total: number }[];
   dimensions: { x: number; y: number };
   max: number;
-  setShowCategory: Dispatch<SetStateAction<string | null>>
+  setShowCategory: Dispatch<SetStateAction<string | null>>;
 }) {
   const margin = { top: 0, right: 30, bottom: 0, left: 180 };
   //TODO: props?

@@ -49,7 +49,9 @@ export default function DataVis({
           setShowCategory={setShowCategory}
         />
       </div>
-      <div>
+      <div
+      className="mt-2 lg:mt-0"
+      >
         {showCategory ? (
           <ItemDetailList
             spendingItems={detailedSpendingItems}

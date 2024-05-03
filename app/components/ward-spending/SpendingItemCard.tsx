@@ -12,7 +12,7 @@ export default function SpendingItemCard({
         <p className="text-sm">{spendingItem.location}</p>
       </div>
       <div className="font-bold text-green-600">
-        <h3>${spendingItem.cost}</h3>
+        <h3>${spendingItem.cost.toLocaleString()}</h3>
       </div>
     </div>
   );
