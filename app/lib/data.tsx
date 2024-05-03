@@ -24,6 +24,9 @@ export async function getWardContactInfo(
 
 // WARD SPENDING ITEMS ******************************
 
+/* getWardSpendingItems:
+fetches spending item records from db;
+optionally pass category (string) arg for further filtering **/
 export async function getWardSpendingItems(
   ward: number,
   year: number,
@@ -39,6 +42,8 @@ export async function getWardSpendingItems(
   return spendingItems;
 }
 
+/* getSpendingItemTotals:
+returns aggregate spending totals by category, from db **/
 export async function getSpendingItemTotals(
   ward: number,
   year: number
