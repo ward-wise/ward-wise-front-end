@@ -39,7 +39,7 @@ function YAxis({ scale }: { scale: ScaleBand<string> }) {
     }
   }, [scale]);
 
-  return <g className="text-base text-wrap" ref={ref} />;
+  return <g className="text-base" ref={ref} />;
 }
 
 function Bars({
@@ -59,7 +59,7 @@ function Bars({
         <g key={category}>
           <rect
             onClick={() => setShowCategory(category)}
-            className="cursor-pointer"
+            className="cursor-pointer hover:fill-teal-500"
             x={0}
             y={scaleY(category)}
             width={scaleX(total)}
@@ -86,7 +86,7 @@ export default function WardSpendingChart({
   max: number;
   setShowCategory: Dispatch<SetStateAction<string | null>>;
 }) {
-  const margin = { top: 0, right: 30, bottom: 0, left: 180 };
+  const margin = { top: -2, right: 32, bottom: 0, left: 190 };
   //TODO: props?
   const width = dimensions.x - margin.left - margin.right;
   const height = dimensions.y - margin.top - margin.bottom;
@@ -97,14 +97,14 @@ export default function WardSpendingChart({
 
   const scaleY = scaleBand()
     .domain(data.map(({ category }) => category))
-    .range([0, height])
+    .range([0, height - 30])
     .padding(0.5);
 
   return (
     <svg
       width={width + margin.left + margin.right}
       height={height + margin.top + margin.bottom}
-      className="border-2 border-black"
+    //   className="border-2 border-black"
     >
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <XAxis scale={scaleX} transform={`translate(0, ${height - 30})`} />

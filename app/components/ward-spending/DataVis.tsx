@@ -6,6 +6,8 @@ import WardSpendingChart from "./WardSpendingChart";
 import ItemDetailList from "./ItemDetailList";
 import { SpendingItemTotal, WardSpendingItem } from "@/app/lib/definitions";
 
+const DEFAULT_CHART_DIMENSIONS = { x: 650, y: 500 }
+
 /* DataVis
 Stateful client component for rendering the Ward Spending bar chart and
 the detailed spending item list
@@ -44,7 +46,7 @@ export default function DataVis({
       <div>
         <WardSpendingChart
           data={totals}
-          dimensions={{ x: 650, y: 500 }}
+          dimensions={DEFAULT_CHART_DIMENSIONS}
           max={max}
           setShowCategory={setShowCategory}
         />
