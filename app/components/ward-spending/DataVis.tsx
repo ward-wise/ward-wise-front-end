@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { getSpendingItemTotals, getWardSpendingItems } from "@/app/lib/data";
 import WardSpendingChart from "./WardSpendingChart";
 import ItemDetailList from "./ItemDetailList";
 import { SpendingItemTotal, WardSpendingItem } from "@/app/lib/definitions";
@@ -16,7 +15,6 @@ state: showCategory determines whether the `ItemDetailList` is rendered,
 
 ward-spending/page.tsx -> DataVis -> {WardSpendingChart, ItemDetailList}
 **/
-
 export default function DataVis({
   totals,
   spendingItems,

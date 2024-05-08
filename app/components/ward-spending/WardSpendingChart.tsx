@@ -1,6 +1,4 @@
 "use client";
-
-import { WardSpendingItem } from "@/app/lib/definitions";
 import {
   ScaleBand,
   ScaleLinear,
@@ -11,8 +9,6 @@ import {
   select,
 } from "d3";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
-// import XAxis from "../ui/data-vis/XAxis";
-// import YAxis from "../ui/data-vis/YAxis";
 
 function XAxis({
   scale,
@@ -77,7 +73,7 @@ function Bars({
 
 export default function WardSpendingChart({
   data,
-  dimensions = { x: 500, y: 300 },
+  dimensions,
   max = 1500000,
   setShowCategory,
 }: {
@@ -87,13 +83,10 @@ export default function WardSpendingChart({
   setShowCategory: Dispatch<SetStateAction<string | null>>;
 }) {
   const margin = { top: -2, right: 32, bottom: 0, left: 190 };
-  //TODO: props?
   const width = dimensions.x - margin.left - margin.right;
   const height = dimensions.y - margin.top - margin.bottom;
 
   const scaleX = scaleLinear().domain([0, max]).range([0, width]);
-  //   const domain = data.map(({ category }) => category);
-  //   const startPX = 30;
 
   const scaleY = scaleBand()
     .domain(data.map(({ category }) => category))
@@ -104,7 +97,6 @@ export default function WardSpendingChart({
     <svg
       width={width + margin.left + margin.right}
       height={height + margin.top + margin.bottom}
-    //   className="border-2 border-black"
     >
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <XAxis scale={scaleX} transform={`translate(0, ${height - 30})`} />

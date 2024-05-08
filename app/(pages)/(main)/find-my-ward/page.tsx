@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import WardSearch from "@/app/components/ui/WardSearch";
-import WardSpendingButton from "@/app/components/ui/WardSpendingButton";
-import AlderContactCard from "@/app/components/ui/AlderContactCard";
+import WardSearch from "@/app/components/ui/find-my-ward/WardSearch";
+import WardSpendingButton from "@/app/components/ui/find-my-ward/WardSpendingButton";
+import AlderContactCard from "@/app/components/ui/find-my-ward/AlderContactCard";
 
 export const metadata: Metadata = {
   title: "Find My Ward",

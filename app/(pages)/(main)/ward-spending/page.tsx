@@ -1,11 +1,7 @@
 import { Metadata } from "next";
-import { WardSelect, YearSelect } from "@/app/components/ward-spending/Filters";
+import { WardSelect, YearSelect } from "@/app/components/ward-spending/filters";
 import { getWardSpendingItems, getSpendingItemTotals } from "@/app/lib/data";
-import BarChart from "@/app/components/ui/data-vis/BarChart";
-import HandMadeBarChart from "@/app/components/ui/data-vis/HandMadeBarChart";
-import WardSpendingChart from "@/app/components/ward-spending/WardSpendingChart";
 import DataVis from "@/app/components/ward-spending/DataVis";
-
 export const metadata: Metadata = {
   title: "Ward Spending",
 };
@@ -32,7 +28,6 @@ export default async function WardSpending({
           <WardSelect />
           <YearSelect />
         </div>
-        {/* TODO: wrap this in suspense? */}
         <DataVis
           totals={wardSpendingTotals}
           max={max}

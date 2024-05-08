@@ -5,7 +5,6 @@ import { WardSpendingItem } from "@/app/lib/definitions";
 List of detailed spending item [cards],
 per category, for the selected year/ward
 **/
-
 export default function ItemDetailList({
   spendingItems,
   category,

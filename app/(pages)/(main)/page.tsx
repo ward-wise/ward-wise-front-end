@@ -1,5 +1,5 @@
 import Link from "next/link";
-import WardSearch from "@/app/components/ui/WardSearch";
+import WardSearch from "@/app/components/ui/find-my-ward/WardSearch";
 import FindMyWard from "./find-my-ward/page";
 import Hero from "@/app/components/ui/Hero";
 
