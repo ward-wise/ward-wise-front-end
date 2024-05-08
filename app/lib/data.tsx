@@ -6,10 +6,12 @@ import {
   WardContactInfo,
   WardSpendingItem,
   SpendingItemTotal,
+  WebsiteType,
 } from "./definitions";
 
 // WARD CONTACT INFO ***********************************
-
+//FIXME: This has errors now? Maybe from moving the Prisma client initialization elswhere?
+//      But no other Prisma fetch methods failed, and this query didn't change at all!
 export async function getWardContactInfo(
   ward: number
 ): Promise<WardContactInfo> {
@@ -24,8 +26,25 @@ export async function getWardContactInfo(
 
 // WARD SPENDING ITEMS ******************************
 
+/* getAllSpendingItems:
+fetches all spending items from db **/
+export async function getAllSpendingItems(): Promise<WardSpendingItem[]> {
+  const spendingItems = await prisma.ward_spending_item.findMany({
+    select: {
+      id: true,
+      ward: true,
+      year: true,
+      item: true,
+      category: true,
+      location: true,
+      cost: true,
+    }
+  });
+  return spendingItems;
+}
+
 /* getWardSpendingItems:
-fetches spending item records from db;
+fetches ward/year spending item records from db;
 optionally pass category (string) arg for further filtering **/
 export async function getWardSpendingItems(
   ward: number,
@@ -36,7 +55,7 @@ export async function getWardSpendingItems(
     where: {
       ward,
       year,
-      category
+      category,
     },
   });
   return spendingItems;
@@ -55,8 +74,8 @@ export async function getSpendingItemTotals(
     GROUP BY category
     ORDER BY total DESC
     `;
-    for (const item of spendingItemTotals) {
-        item.total = Number(item.total);
-    }
+  for (const item of spendingItemTotals) {
+    item.total = Number(item.total);
+  }
   return spendingItemTotals;
 }
