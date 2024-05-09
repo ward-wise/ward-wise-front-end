@@ -20,8 +20,9 @@ export async function getWardContactInfo(
       ward,
     },
   });
-  wardContactInfo.websites = JSON.parse(wardContactInfo.websites);
-  return wardContactInfo;
+  if(wardContactInfo)
+    wardContactInfo.websites = JSON.parse(wardContactInfo.websites as string);
+  return wardContactInfo as any;
 }
 
 // WARD SPENDING ITEMS ******************************
