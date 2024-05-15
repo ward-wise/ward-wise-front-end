@@ -27,11 +27,23 @@ function XAxis({
   return <g className="text-sm" ref={ref} transform={transform} />;
 }
 
-function YAxis({ scale }: { scale: ScaleBand<string> }) {
+function YAxis({
+  scale,
+  setShowCategory,
+}: {
+  scale: ScaleBand<string>;
+  setShowCategory: Dispatch<SetStateAction<string | null>>;
+}) {
   const ref = useRef<SVGGElement>(null);
   useEffect(() => {
     if (ref.current) {
-      select(ref.current).call(axisLeft(scale));
+      select(ref.current)
+        .call(axisLeft(scale))
+        .selectAll("text")
+        .classed("cursor-pointer", true)
+        .on("click", (evt) => {
+          setShowCategory(evt.target.__data__ as string);
+        });
     }
   }, [scale]);
 
@@ -43,11 +55,13 @@ function Bars({
   scaleX,
   scaleY,
   setShowCategory,
+  selectedCategory,
 }: {
   data: { category: string; total: number }[];
   scaleX: ScaleLinear<number, number, never>;
   scaleY: ScaleBand<string>;
   setShowCategory: Dispatch<SetStateAction<string | null>>;
+  selectedCategory: string | null;
 }) {
   return (
     <>
@@ -55,14 +69,19 @@ function Bars({
         <g key={category}>
           <rect
             onClick={() => setShowCategory(category)}
-            className="cursor-pointer hover:fill-teal-500"
+            className={`${
+              category === selectedCategory ? "fill-teal-300" : "fill-teal-600"
+            } cursor-pointer hover:fill-teal-300`}
             x={0}
             y={scaleY(category)}
+            rx={2}
             width={scaleX(total)}
             height={scaleY.bandwidth()}
-            fill="teal"
           />
-          <text x={scaleX(total) + 6} y={(scaleY(category) as number) + scaleY.bandwidth()/2 + 4}>
+          <text
+            x={scaleX(total) + 6}
+            y={(scaleY(category) as number) + scaleY.bandwidth() / 2 + 4}
+          >
             ${total.toLocaleString()}
           </text>
         </g>
@@ -76,11 +95,13 @@ export default function WardSpendingChart({
   dimensions,
   max = 1500000,
   setShowCategory,
+  selectedCategory
 }: {
   data: { category: string; total: number }[];
   dimensions: { x: number; y: number };
   max: number;
   setShowCategory: Dispatch<SetStateAction<string | null>>;
+  selectedCategory: string | null;
 }) {
   const margin = { top: -2, right: 32, bottom: 0, left: 190 };
   const width = dimensions.x - margin.left - margin.right;
@@ -100,12 +121,13 @@ export default function WardSpendingChart({
     >
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <XAxis scale={scaleX} transform={`translate(0, ${height - 30})`} />
-        <YAxis scale={scaleY} />
+        <YAxis scale={scaleY} setShowCategory={setShowCategory} />
         <Bars
           data={data}
           scaleX={scaleX}
           scaleY={scaleY}
           setShowCategory={setShowCategory}
+          selectedCategory={selectedCategory}
         />
       </g>
     </svg>

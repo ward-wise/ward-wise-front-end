@@ -28,14 +28,14 @@ export default function DataVis({
   ward: number;
   year: number;
 }) {
-  const [showCategory, setShowCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   //Generate a filtered list of spending items for ward/year/category,
   //sorted by cost, desc.
   let detailedSpendingItems: WardSpendingItem[] = [];
-  if (showCategory) {
+  if (selectedCategory) {
     detailedSpendingItems = spendingItems.filter(
-      (item) => item.category === showCategory
+      (item) => item.category === selectedCategory
     ).sort((a, b) => b.cost - a.cost);
   }
 
@@ -46,16 +46,17 @@ export default function DataVis({
           data={totals}
           dimensions={DEFAULT_CHART_DIMENSIONS}
           max={max}
-          setShowCategory={setShowCategory}
+          setShowCategory={setSelectedCategory}
+          selectedCategory={selectedCategory}
         />
       </div>
       <div
       className="mt-2 lg:mt-0"
       >
-        {showCategory ? (
+        {selectedCategory ? (
           <ItemDetailList
             spendingItems={detailedSpendingItems}
-            category={showCategory}
+            category={selectedCategory}
             ward={ward}
             year={year}
           />
