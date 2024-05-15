@@ -79,6 +79,7 @@ function Bars({
             height={scaleY.bandwidth()}
           />
           <text
+            className="text-sm md:text-base"
             x={scaleX(total) + 6}
             y={(scaleY(category) as number) + scaleY.bandwidth() / 2 + 4}
           >
@@ -95,7 +96,7 @@ export default function WardSpendingChart({
   dimensions,
   max = 1500000,
   setSelectedCategory,
-  selectedCategory
+  selectedCategory,
 }: {
   data: { category: string; total: number }[];
   dimensions: { x: number; y: number };
@@ -103,7 +104,12 @@ export default function WardSpendingChart({
   setSelectedCategory: Dispatch<SetStateAction<string | null>>;
   selectedCategory: string | null;
 }) {
-  const margin = { top: -2, right: 32, bottom: 0, left: 190 };
+  const margin = {
+    top: -2,
+    right: 32,
+    bottom: 0,
+    left: window.innerWidth < 768 ? 165 : 190,
+  };
   const width = dimensions.x - margin.left - margin.right;
   const height = dimensions.y - margin.top - margin.bottom;
 
