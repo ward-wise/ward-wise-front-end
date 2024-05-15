@@ -29,10 +29,10 @@ function XAxis({
 
 function YAxis({
   scale,
-  setShowCategory,
+  setSelectedCategory,
 }: {
   scale: ScaleBand<string>;
-  setShowCategory: Dispatch<SetStateAction<string | null>>;
+  setSelectedCategory: Dispatch<SetStateAction<string | null>>;
 }) {
   const ref = useRef<SVGGElement>(null);
   useEffect(() => {
@@ -42,25 +42,25 @@ function YAxis({
         .selectAll("text")
         .classed("cursor-pointer", true)
         .on("click", (evt) => {
-          setShowCategory(evt.target.__data__ as string);
+          setSelectedCategory(evt.target.__data__ as string);
         });
     }
   }, [scale]);
 
-  return <g className="text-base" ref={ref} />;
+  return <g className="text-sm md:text-base" ref={ref} />;
 }
 
 function Bars({
   data,
   scaleX,
   scaleY,
-  setShowCategory,
+  setSelectedCategory,
   selectedCategory,
 }: {
   data: { category: string; total: number }[];
   scaleX: ScaleLinear<number, number, never>;
   scaleY: ScaleBand<string>;
-  setShowCategory: Dispatch<SetStateAction<string | null>>;
+  setSelectedCategory: Dispatch<SetStateAction<string | null>>;
   selectedCategory: string | null;
 }) {
   return (
@@ -68,7 +68,7 @@ function Bars({
       {data.map(({ category, total }) => (
         <g key={category}>
           <rect
-            onClick={() => setShowCategory(category)}
+            onClick={() => setSelectedCategory(category)}
             className={`${
               category === selectedCategory ? "fill-teal-300" : "fill-teal-600"
             } cursor-pointer hover:fill-teal-300`}
@@ -94,13 +94,13 @@ export default function WardSpendingChart({
   data,
   dimensions,
   max = 1500000,
-  setShowCategory,
+  setSelectedCategory,
   selectedCategory
 }: {
   data: { category: string; total: number }[];
   dimensions: { x: number; y: number };
   max: number;
-  setShowCategory: Dispatch<SetStateAction<string | null>>;
+  setSelectedCategory: Dispatch<SetStateAction<string | null>>;
   selectedCategory: string | null;
 }) {
   const margin = { top: -2, right: 32, bottom: 0, left: 190 };
@@ -121,12 +121,12 @@ export default function WardSpendingChart({
     >
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <XAxis scale={scaleX} transform={`translate(0, ${height - 30})`} />
-        <YAxis scale={scaleY} setShowCategory={setShowCategory} />
+        <YAxis scale={scaleY} setSelectedCategory={setSelectedCategory} />
         <Bars
           data={data}
           scaleX={scaleX}
           scaleY={scaleY}
-          setShowCategory={setShowCategory}
+          setSelectedCategory={setSelectedCategory}
           selectedCategory={selectedCategory}
         />
       </g>

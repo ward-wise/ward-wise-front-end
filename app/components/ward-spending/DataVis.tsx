@@ -46,7 +46,7 @@ export default function DataVis({
           data={totals}
           dimensions={DEFAULT_CHART_DIMENSIONS}
           max={max}
-          setShowCategory={setSelectedCategory}
+          setSelectedCategory={setSelectedCategory}
           selectedCategory={selectedCategory}
         />
       </div>
