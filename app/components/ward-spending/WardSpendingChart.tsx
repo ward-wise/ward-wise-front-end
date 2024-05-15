@@ -8,6 +8,7 @@ import {
   scaleLinear,
   select,
 } from "d3";
+import wrap from "@/app/lib/utils/d3TextWrap";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 
 function XAxis({
@@ -44,8 +45,11 @@ function YAxis({
         .on("click", (evt) => {
           setSelectedCategory(evt.target.__data__ as string);
         });
+      if (window.innerWidth < 576) {
+        select(ref.current).selectAll("text").call(wrap, 100).attr("dx", -12);
+      }
     }
-  }, [scale]);
+  }, [scale, setSelectedCategory]);
 
   return <g className="text-sm md:text-base" ref={ref} />;
 }
@@ -108,7 +112,7 @@ export default function WardSpendingChart({
     top: -2,
     right: 32,
     bottom: 0,
-    left: window.innerWidth < 768 ? 165 : 190,
+    left: window.innerWidth < 576 ? 70 : 190,
   };
   const width = dimensions.x - margin.left - margin.right;
   const height = dimensions.y - margin.top - margin.bottom;

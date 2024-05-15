@@ -5,8 +5,8 @@ import WardSpendingChart from "./WardSpendingChart";
 import ItemDetailList from "./ItemDetailList";
 import { SpendingItemTotal, WardSpendingItem } from "@/app/lib/definitions";
 
-const MD_CHART_DIMENSIONS = { x: 650, y: 500 }
-const MOBILE_CHART_DIMENSIONS = { x: 360, y: 400 }
+const MD_CHART_DIMENSIONS = { x: 650, y: 500 };
+const MOBILE_CHART_DIMENSIONS = { x: 400, y: 400 };
 
 /* DataVis
 Stateful client component for rendering the Ward Spending bar chart and
@@ -35,9 +35,9 @@ export default function DataVis({
   //sorted by cost, desc.
   let detailedSpendingItems: WardSpendingItem[] = [];
   if (selectedCategory) {
-    detailedSpendingItems = spendingItems.filter(
-      (item) => item.category === selectedCategory
-    ).sort((a, b) => b.cost - a.cost);
+    detailedSpendingItems = spendingItems
+      .filter((item) => item.category === selectedCategory)
+      .sort((a, b) => b.cost - a.cost);
   }
 
   return (
@@ -45,15 +45,17 @@ export default function DataVis({
       <div>
         <WardSpendingChart
           data={totals}
-          dimensions={MD_CHART_DIMENSIONS}
+          dimensions={
+            window.innerWidth < 576
+              ? MOBILE_CHART_DIMENSIONS
+              : MD_CHART_DIMENSIONS
+          }
           max={max}
           setSelectedCategory={setSelectedCategory}
           selectedCategory={selectedCategory}
         />
       </div>
-      <div
-      className="mt-2 lg:mt-0"
-      >
+      <div className="mt-2 lg:mt-0">
         {selectedCategory ? (
           <ItemDetailList
             spendingItems={detailedSpendingItems}
@@ -62,7 +64,7 @@ export default function DataVis({
             year={year}
           />
         ) : (
-          <p>Click a category to see spending items</p>
+          <p className="text-center">Click a category to see spending items</p>
         )}
       </div>
     </div>
