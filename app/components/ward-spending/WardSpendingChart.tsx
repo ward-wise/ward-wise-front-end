@@ -21,7 +21,15 @@ function XAxis({
   const ref = useRef<SVGGElement>(null);
   useEffect(() => {
     if (ref.current) {
-      select(ref.current).call(axisBottom(scale).ticks(4));
+      const formatValue = (d: { valueOf(): number }) => {
+        const value = d.valueOf();
+        return value === 0 ? '0' : `$${(value / 1000).toFixed(0)}K`;
+      };
+      const axis = axisBottom(scale)
+        .ticks(4)
+        .tickFormat(formatValue);
+
+      select(ref.current).call(axis);
     }
   }, [scale]);
 
@@ -86,8 +94,9 @@ function Bars({
             className="text-sm md:text-base"
             x={scaleX(total) + 6}
             y={(scaleY(category) as number) + scaleY.bandwidth() / 2 + 4}
+            onClick={() => setSelectedCategory(category)}
           >
-            ${total.toLocaleString()}
+            ${Math.round(total/1000)}K
           </text>
         </g>
       ))}

@@ -6,7 +6,7 @@ import ItemDetailList from "./ItemDetailList";
 import { SpendingItemTotal, WardSpendingItem } from "@/app/lib/definitions";
 
 const MD_CHART_DIMENSIONS = { x: 650, y: 500 };
-const MOBILE_CHART_DIMENSIONS = { x: 400, y: 400 };
+const MOBILE_CHART_DIMENSIONS = { x: 350, y: 400 };
 
 /* DataVis
 Stateful client component for rendering the Ward Spending bar chart and
