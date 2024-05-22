@@ -15,15 +15,36 @@ async function seedWardContactInfoData() {
     data: wardContactData
   });
 
+  //for logging
   const aggregate = await prisma.ward_contact_info.aggregate({
     _count: { ward: true }
   });
   console.log("inserted", aggregate._count.ward, "ward_contact_info records");
 }
 
+async function seedWardSpendingItems() {
+  const wardSpendingData =
+    await getDataFromCSV(process.cwd() + '/data/2012-2023_ward_items.csv');
+    for (const item of wardSpendingData) {
+      item.ward = +item.ward;
+      item.year = +item.year;
+      item.cost = +item.cost;
+    }
+  await prisma.ward_spending_item.createMany({
+    data: wardSpendingData
+  });
+
+  //for logging
+  const aggregate = await prisma.ward_spending_item.aggregate({
+    _count: { id: true }
+  });
+  console.log("inserted", aggregate._count.id, "ward_spending_item records");
+}
+
 //call DB seending functions here
 async function main() {
   await seedWardContactInfoData();
+  await seedWardSpendingItems();
 }
 
 main()
