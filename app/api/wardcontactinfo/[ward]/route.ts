@@ -13,8 +13,8 @@ export async function GET(request: Request, {
 
   //error handling for out of bounds ward
   const errors: string[] = [];
-  if (ward < 1 || ward > 50) {
-    errors.push("Ward out of bounds. Select 1-50.");
+  if (Number.isNaN(ward) || ward < 1 || ward > 50) {
+    errors.push("Ward out of bounds. Select a number 1-50.");
   }
   if (errors.length) {
     return Response.json({ errors }, { status: 400 });
