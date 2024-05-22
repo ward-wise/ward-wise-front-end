@@ -32,17 +32,27 @@ export async function getWardContactInfo(
       ward,
     },
   });
-  if(wardContactInfo)
+  if (wardContactInfo)
     wardContactInfo.websites = JSON.parse(wardContactInfo.websites as string);
   //TODO: fix type casting as any here
   return wardContactInfo as any;
 }
 
-// WARD SPENDING ITEMS ******************************
+// SPENDING ITEMS ******************************
 
-/* getAllSpendingItems:
-fetches all spending items from db **/
-export async function getAllSpendingItems(): Promise<WardSpendingItem[]> {
+/* getSpendingItems:
+fetches spending item records from db;
+optionally pass {ward, year, category} args
+for filtering **/
+export async function getSpendingItems({
+  ward,
+  year,
+  category,
+}: {
+  ward?: number;
+  year?: number;
+  category?: string | undefined;
+}): Promise<WardSpendingItem[]> {
   const spendingItems = await prisma.ward_spending_item.findMany({
     select: {
       id: true,
@@ -52,20 +62,7 @@ export async function getAllSpendingItems(): Promise<WardSpendingItem[]> {
       category: true,
       location: true,
       cost: true,
-    }
-  });
-  return spendingItems;
-}
-
-/* getWardSpendingItems:
-fetches ward/year spending item records from db;
-optionally pass category (string) arg for further filtering **/
-export async function getWardSpendingItems(
-  ward: number,
-  year: number,
-  category?: string | undefined
-): Promise<WardSpendingItem[]> {
-  const spendingItems = await prisma.ward_spending_item.findMany({
+    },
     where: {
       ward,
       year,
