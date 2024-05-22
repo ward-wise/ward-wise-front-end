@@ -36,6 +36,27 @@ export default async function WardSpending({
           year={year}
         />
       </div>
+      {data &&
+        <DataDemo data={data} />
+      }
     </main>
   );
 }
+
+
+const DataDemo = ({ data }: { data: any }) => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      {data.map((item: any, index: number) => (
+        <div key={index} className="bg-gray-100 rounded-lg shadow-md p-4 mb-4">
+          <h2 className="text-xl font-semibold mb-2">{item.item}</h2>
+          <p className="text-gray-700 mb-2">Category: {item.category}</p>
+          <p className="text-gray-700 mb-2">Ward: {item.ward}</p>
+          <p className="text-gray-700 mb-2">Year: {item.year}</p>
+          <p className="text-gray-700 mb-2">Location: {item.location}</p>
+          <p className="text-gray-700 mb-2">Cost: {item.cost}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
