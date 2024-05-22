@@ -10,8 +10,20 @@ import {
 } from "./definitions";
 
 // WARD CONTACT INFO ***********************************
-//FIXME: This has errors now? Maybe from moving the Prisma client initialization elswhere?
-//      But no other Prisma fetch methods failed, and this query didn't change at all!
+
+/* getAllWardContactInfo:
+fetches all ward contact info data from db **/
+export async function getAllWardContactInfo(): Promise<WardContactInfo[]> {
+  const wardContactInfos = await prisma.ward_contact_info.findMany();
+  for (const row of wardContactInfos) {
+    row.websites = JSON.parse(row.websites as string);
+  }
+
+  return wardContactInfos as any;
+}
+
+/* getWardContactInfo:
+fetches passed ward's contact info data from db **/
 export async function getWardContactInfo(
   ward: number
 ): Promise<WardContactInfo> {
@@ -22,6 +34,7 @@ export async function getWardContactInfo(
   });
   if(wardContactInfo)
     wardContactInfo.websites = JSON.parse(wardContactInfo.websites as string);
+  //TODO: fix type casting as any here
   return wardContactInfo as any;
 }
 
