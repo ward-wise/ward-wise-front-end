@@ -9,8 +9,17 @@ export async function GET(request: Request, {
 }: {
   params: { ward: string };
 }): Promise<Response> {
-  console.log("!!!!!!!", params);
   const ward: number = +params.ward;
+
+  //error handling for out of bounds ward
+  const errors: string[] = [];
+  if (ward < 1 || ward > 50) {
+    errors.push("Ward out of bounds. Select 1-50.");
+  }
+  if (errors.length) {
+    return Response.json({ errors }, { status: 400 });
+  }
+
   const wardContactInfo = await getWardContactInfo(ward);
   return Response.json({ wardContactInfo });
 }
