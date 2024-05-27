@@ -11,7 +11,7 @@ import {
   FacebookLogo,
   XLogo,
   InstagramLogo,
-} from "./SVGIcons";
+} from "../SVGIcons";
 
 /** AlderContactCard:
  * card listing contact information with alderperson's photo.

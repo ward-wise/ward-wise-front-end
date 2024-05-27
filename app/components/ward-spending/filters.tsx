@@ -31,7 +31,7 @@ export function QueryDropDown({ label, queryParam, options, defaultValue }: { la
     };
 
     return (
-        <div className="relative flex items-baseline">
+        <div className="relative flex items-baseline w-32">
             <label htmlFor={label} className='mx-4'>
                 {label}
             </label>

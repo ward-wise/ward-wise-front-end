@@ -8,6 +8,7 @@ datasource db {
   url = env("DATABASE_URL")
 }
 
+
 model ward_contact_info {
   ward Int @id
   alderperson String
@@ -15,4 +16,16 @@ model ward_contact_info {
   email String
   phone String
   websites Json?
+}
+//TODO: Should these tables be relational? Probably! Ward < Ward Spending Items
+// Does this mean `ward_contact_info` becomes a more general `ward_info` table,
+//  with, say, geographic info as well?
+model ward_spending_item {
+  id Int @id @default(autoincrement())
+  ward Int
+  year Int
+  item String
+  category String
+  location String
+  cost Int
 }
