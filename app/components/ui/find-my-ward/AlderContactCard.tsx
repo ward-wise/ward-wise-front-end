@@ -43,9 +43,9 @@ export default async function AlderContactCard({
   };
 
   return (
-    <div className="p-2 rounded-md border-solid border-2 border-black w-3/4">
+    <div className="p-2 border-1 border-gray-400 p-3 w-3/4 rounded-md shadow-lg lg:w-2/3">
       <h2 className="text-center">{alderperson}</h2>
-      <div className="flex gap-x-2 mt-2">
+      <div className="md:flex md:gap-x-2 md:justify-between mt-2">
         {/* It's OK to leave this an `img` because it's just a statically-sized avatar,
             regardless of platform */}
         <img
@@ -54,7 +54,7 @@ export default async function AlderContactCard({
           width={100}
           height={100}
         />
-        <div className="grow ">
+        <div className="flex flex-col gap-y-2 mt-2">
           <p>
             <a href={`tel:${phone}`}>
               <Phone /> {phone}
@@ -77,7 +77,7 @@ export default async function AlderContactCard({
             </a>
           </p>
         </div>
-        <div className="flex flex-col">
+        <div className="flex gap-2 md:flex-col items-center">
           {websites &&
             Object.keys(websites).map((site) => (
               <a
@@ -85,6 +85,7 @@ export default async function AlderContactCard({
                 key={site}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-6"
               >
                 {webIcons[site as keyof WebsiteType]}
               </a>
