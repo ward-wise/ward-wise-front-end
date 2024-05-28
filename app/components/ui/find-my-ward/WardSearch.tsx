@@ -86,16 +86,20 @@ export default function WardSearch() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="address" className="block">
+        <label htmlFor="address" className="block ml-2 font-semibold">
           Find My Ward
         </label>
-        <input
-          id="address"
-          name="address"
-          placeholder="Enter Address"
-          className="border-2 border-black rounded-md w-3/4"
-        />
-        <button className="ml-4 border border-black rounded-md">Search</button>
+        <div className="w-full flex">
+          <input
+            id="address"
+            name="address"
+            placeholder="Enter Address"
+            className="border-1 border-gray-400 p-3 flex-grow rounded-md shadow-lg"
+          />
+          <button className="ml-4 p-3 shadow-lg bg-sky-500 text-white font-bold rounded-md text-center">
+            Search
+          </button>
+        </div>
       </form>
       {responseError && <p>{responseError}</p>}
     </>

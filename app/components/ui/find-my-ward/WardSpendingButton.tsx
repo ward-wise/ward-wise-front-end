@@ -18,7 +18,7 @@ export default function WardSpendingButton() {
     return (
       <button
         onClick={handleClick}
-        className="p-2 border-2 border-black rounded-md"
-      >{`View spending for ward ${currentWard}`}</button>
+        className="p-6 shadow-lg bg-sky-500 text-white font-bold rounded-md text-center lg:w-96"
+      >{`View Spending for Ward ${currentWard}`}</button>
     );
 }

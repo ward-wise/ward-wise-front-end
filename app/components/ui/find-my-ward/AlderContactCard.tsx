@@ -43,41 +43,55 @@ export default async function AlderContactCard({
   };
 
   return (
-    <div className="p-2 rounded-md border-solid border-2 border-black w-3/4">
-      <h2 className="text-center">{alderperson}</h2>
-      <div className="flex gap-x-2 mt-2">
+    <div className="border-1 border-gray-400 p-6 w-full rounded-md shadow-lg lg:w-2/3 md:grid md:grid-cols-2">
+      <div>
+        <h1 className="text-center font-bold text-xl">Ward {ward}</h1>
+        <h2 className="text-center italic">{alderperson}</h2>
         {/* It's OK to leave this an `img` because it's just a statically-sized avatar,
             regardless of platform */}
-        <img
-          src={`../../../images/alderpeople/ward_${ward}.png`}
-          alt={alderperson}
-          width={100}
-          height={100}
-        />
-        <div className="grow ">
+        <div className="w-full my-8 flex justify-center">
+          <img
+            src={`../../../images/alderpeople/ward_${ward}.png`}
+            alt={alderperson}
+            width={100}
+            height={100}
+          />
+        </div>
+      </div>
+      <div className="mt-2">
+        <div className="flex flex-col gap-y-4 mt-2">
           <p>
-            <a href={`tel:${phone}`}>
-              <Phone /> {phone}
+            <a className='flex items-center my-1' href={`tel:${phone}`}>
+              <Phone />
+              <p className='pl-4'>
+                {phone}
+              </p>
             </a>
           </p>
           <p>
-            <a href={`mailto:${email}`}>
-              <Envelope /> {email}
+            <a className='flex items-center my-1' href={`mailto:${email}`}>
+              <Envelope />
+              <p className='pl-4'>
+                {email}
+              </p>
             </a>
           </p>
           <p>
-            <a
+            <a className='flex items-center my-1'
               href={
                 address
                   ? `https://maps.google.com/?q=${encodeURIComponent(address)}`
                   : ""
               }
             >
-              <LocationDot /> {address}
+              <LocationDot />
+              <p className='pl-4'>
+                {address}
+              </p>
             </a>
           </p>
         </div>
-        <div className="flex flex-col">
+        <div className="flex gap-2 mt-10 mb-4 item-center justify-evenly">
           {websites &&
             Object.keys(websites).map((site) => (
               <a
@@ -85,6 +99,7 @@ export default async function AlderContactCard({
                 key={site}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-6"
               >
                 {webIcons[site as keyof WebsiteType]}
               </a>
