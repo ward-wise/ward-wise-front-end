@@ -1,5 +1,7 @@
 "use server";
 
+import prisma from "./client";
+
 import { gpsCoordinates } from "./definitions";
 import type { GeoJsonObject } from 'geojson';
 /** Query the Census geocoder API to get location data. */
@@ -59,15 +61,44 @@ const testGeoJson2: any = {
     ]
 };
 
-export async function getProjectDataFromCoordinates(
-    latitude: number,
-    longitude: number,
-): Promise<GeoJsonObject> {
-    // TODO implement database integration
-    if (latitude != 41.91946055)
-        return testGeoJson2;
-    else
-        return testGeoJson1;
+export async function getProjectDataFromCoordinates(latitude: number, longitude: number) {
+
+    try {
+        const mileInMeters = 1609.34;
+
+        const projects: any = await prisma.$queryRaw`
+      SELECT id, ward, type as item, location, est_cost as cost, year, type as category, ST_AsGeoJSON(wkb_geometry) as geometry
+      FROM public.ward_spending_item_geodata
+      WHERE ST_DWithin(
+        ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326)::geography,
+        ST_SetSRID(ST_GeomFromWKB(wkb_geometry), 4326)::geography,
+        ${mileInMeters}
+      );
+    `;
+
+        const geoJSON = projects.map((project: any) => ({
+            type: 'Feature',
+            geometry: JSON.parse(project.geometry),
+            properties: {
+                // ogc_fid: project.ogc_fid,
+                ward: project.ward,
+                item: project.item,
+                location: project.location,
+                cost: project.cost,
+                year: project.year,
+                category: project.category,
+            },
+        }));
+
+        // const geoJSON = {
+        //   type: 'FeatureCollection',
+        //   features: features,
+        // };
+
+        return geoJSON;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 export async function getProjectCenterCoordinates(
