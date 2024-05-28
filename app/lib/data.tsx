@@ -10,8 +10,20 @@ import {
 } from "./definitions";
 
 // WARD CONTACT INFO ***********************************
-//FIXME: This has errors now? Maybe from moving the Prisma client initialization elswhere?
-//      But no other Prisma fetch methods failed, and this query didn't change at all!
+
+/* getAllWardContactInfo:
+fetches all ward contact info data from db **/
+export async function getAllWardContactInfo(): Promise<WardContactInfo[]> {
+  const wardContactInfos = await prisma.ward_contact_info.findMany();
+  for (const row of wardContactInfos) {
+    row.websites = JSON.parse(row.websites as string);
+  }
+
+  return wardContactInfos as any;
+}
+
+/* getWardContactInfo:
+fetches passed ward's contact info data from db **/
 export async function getWardContactInfo(
   ward: number
 ): Promise<WardContactInfo> {
@@ -20,16 +32,27 @@ export async function getWardContactInfo(
       ward,
     },
   });
-  if(wardContactInfo)
+  if (wardContactInfo)
     wardContactInfo.websites = JSON.parse(wardContactInfo.websites as string);
+  //TODO: fix type casting as any here
   return wardContactInfo as any;
 }
 
-// WARD SPENDING ITEMS ******************************
+// SPENDING ITEMS ******************************
 
-/* getAllSpendingItems:
-fetches all spending items from db **/
-export async function getAllSpendingItems(): Promise<WardSpendingItem[]> {
+/* getSpendingItems:
+fetches spending item records from db;
+optionally pass {ward, year, category} args
+for filtering **/
+export async function getSpendingItems({
+  ward,
+  year,
+  category,
+}: {
+  ward?: number;
+  year?: number;
+  category?: string | undefined;
+}): Promise<WardSpendingItem[]> {
   const spendingItems = await prisma.ward_spending_item.findMany({
     select: {
       id: true,
@@ -39,20 +62,7 @@ export async function getAllSpendingItems(): Promise<WardSpendingItem[]> {
       category: true,
       location: true,
       cost: true,
-    }
-  });
-  return spendingItems;
-}
-
-/* getWardSpendingItems:
-fetches ward/year spending item records from db;
-optionally pass category (string) arg for further filtering **/
-export async function getWardSpendingItems(
-  ward: number,
-  year: number,
-  category?: string | undefined
-): Promise<WardSpendingItem[]> {
-  const spendingItems = await prisma.ward_spending_item.findMany({
+    },
     where: {
       ward,
       year,
