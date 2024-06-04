@@ -4,7 +4,7 @@ import { MenuItem } from '@/app/lib/definitions';
 
 export default function MenuItemCard({ item }: { item: MenuItem }) {
     return (
-        <Link href={`alderman-spending-menu/${item.id}`} className="relative bg-white rounded-md overflow-hidden shadow-md flex transition-transform hover:transform hover:scale-105">
+        <Link href={`infrastructure-menu/${item.id}`} className="relative bg-white rounded-md overflow-hidden shadow-md flex transition-transform hover:transform hover:scale-105">
             <div className="w-1/3">
                 <img src={`/images/menu-items/${item.imgFilename}`} alt={item.name} className="h-full w-full object-cover" />
             </div>

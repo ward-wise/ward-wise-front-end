@@ -69,7 +69,7 @@ export default function FAQs() {
           </div>
           <p>
             Alders are provided a{" "}
-            <Hyperlink href="https://www.wardwisechicago.org/#/menu-items">
+            <Hyperlink href="infrastructure-menu">
               list of standard menu items
             </Hyperlink>
             {" "} they can implement across their ward. They can choose to spend money on

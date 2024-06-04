@@ -18,12 +18,12 @@ const menuItems: MenuItem[] = [
     path: "/ward-spending",
   },
   {
-    label: "Maps",
-    path: "/maps",
+    label: "Spending Map",
+    path: "/spending-map",
   },
   {
-    label: "Spending Menu",
-    path: "/alderman-spending-menu",
+    label: "Infrastructure Menu",
+    path: "/infrastructure-menu",
   },
   {
     label: "FAQs",
