@@ -14,13 +14,13 @@ export default function FAQs() {
 
         <FAQ title={"What is a ward?"}>
           <p className="mb-4">
-            The city of Chicago is divided into 50 legistlative areas, called
-            &quot;wards&quot;. Each ward contains rougly 50,000 residents, and can
+            The city of Chicago is divided into 50 legislative areas, called
+            &quot;wards&quot;. Each ward contains roughly 50,000 residents, and can
             overlap with multiple neighborhoods. Ward boundaries are redrawn every 8
             years and were last redrawn in 2023.
           </p>
-          <Hyperlink href="https://www.chicago.gov/city/en/about/wards.html">
-            {"View the city's list of wards"}
+          <Hyperlink href="https://chicago.councilmatic.org/council-members/">
+            {"View ward boundaries and information"}
           </Hyperlink>
         </FAQ>
 
@@ -28,7 +28,7 @@ export default function FAQs() {
         <FAQ title={"What is an alder?"}>
           <p className="mb-4">
             Each ward elects an alder, who is essentially a mini-mayor. They provide
-            ward services and vote on citywide legistlation in the Chicago City
+            ward services and vote on citywide legislation in the Chicago City
             Council.
           </p>
           <Hyperlink href="https://www.citybureau.org/newswire/2023/1/24/what-does-an-alderman-do">
@@ -69,7 +69,7 @@ export default function FAQs() {
           </div>
           <p>
             Alders are provided a{" "}
-            <Hyperlink href="https://www.wardwisechicago.org/#/menu-items">
+            <Hyperlink href="infrastructure-menu">
               list of standard menu items
             </Hyperlink>
             {" "} they can implement across their ward. They can choose to spend money on
@@ -108,9 +108,9 @@ export default function FAQs() {
 
         <FAQ title={"What is Vision Zero?"}>
           <p className="mb-4">
-            Menu iteams that make streets safer are denoted with the Vision Zero
-            logo in the menu item list. Vision Zero is an effort to bring the number
-            of yearly traffic fatalities down to zero.
+            Vision Zero is an effort to bring the number of yearly traffic fatalities down to zero.
+            Menu items that make streets safer are denoted with the Vision Zero
+            logo in the menu item list. 
             <br />
           </p>
           <Hyperlink href="https://activetrans.org/our-work/walking/vision-zero">
@@ -121,41 +121,54 @@ export default function FAQs() {
         <FAQ title={"How can I influence menu funds and infrastructure spending in my ward?"}>
           <p className="mb-4">
             {/* TODO: should link Find My Ward tool here */}
-            Reach out to your ward office! You can use our Find My Ward tool to get their contact information. If
-            your ward does participatory budgeting, ask how you can be involved.If
+            Reach out to your ward office! You can use our <Hyperlink href="find-my-ward">Find My Ward tool</Hyperlink> to get their contact information. If
+            your ward does participatory budgeting, ask how you can be involved. If
             not, don&apos;t despair! You can still contact your alder to discuss
             your infrastructure idea (and ask them to consider participatory
             budgeting).
           </p >
-          <p>Two pieces of advice:</p>
-          <ol className="ml-8 space-y-2 mt-2 list-decimal">
-            <li>Phone calls are generally more impactful than emails.</li>
+          <p>Some advice:</p>
+          <ul className="ml-8 space-y-2 mt-2 list-disc">
+            <li>Sign up for your ward's newsletter! It's a great way to stay in the loop on participatory budgeting.</li>
+            <li>
+              Have specific asks. Know the type of project and the exact location 
+              you're looking for. Make sure the project is reasonably priced in
+              proportion to the ward budget.
+            </li>
+            <li>
+              Phone calls and in-person conversations are generally more impactful
+              than emails. If you call your ward office, you'll likely talk with
+              front office staff and they will relay your requests up the chain of
+              command. If you'd like to talk directly with your alder, sign up to 
+              attend one of their ward nights.
+            </li>
             <li>
               Try to find other people who care about the same issue. Convince them
               to contact your ward office too! Many voices have more influence than
               a single voice alone.
             </li>
-          </ol>
+          </ul>
         </FAQ >
 
         <FAQ title={"Where does your data come from?"}>
           <ul className="ml-8 space-y-2 list-disc">
             <li>
-              Since 2012, the Chicago Office of Budget and Management has published
-              PDFs of itemized aldermanic menu spending to their{" "}
+              Since 2012, the Chicago Office of Budget and Management (OBM) has published
+              PDFs of itemized aldermanic menu spending on their{" "}
               <Hyperlink href="https://www.chicago.gov/city/en/depts/obm/provdrs/cap_improve/svcs/cip-archive.html">
                 Capital Improvement Archive
               </Hyperlink>
-              . Our site is using raw data extracted from these PDFs by journalist{" "}
-              <Hyperlink href="https://jakejeromesmith.wordpress.com/">Jake Smith</Hyperlink>.
-            </li>
-            <li>
-              Researcher John C. Ruf submitted a FOIA request to get aldermanic
+              . Researcher John C. Ruf submitted a FOIA request to get aldermanic
               spending data going back to 2005. Those PDFs are available{" "}
               <Hyperlink href="https://github.com/JohnCRuf/alderman_machine/tree/master/tasks/initialdata/output">
                 here
-              </Hyperlink>
-              . We hope to incorporate that data into our site in the near future.
+              </Hyperlink>.
+            </li>
+            <li>
+              Our site is using raw data extracted from the OBM PDFs. Both journalist{" "}
+              <Hyperlink href="https://jakejeromesmith.wordpress.com/">Jake Smith</Hyperlink> and 
+              researcher <Hyperlink href="https://github.com/JohnCRuf">John Ruf</Hyperlink> independently 
+              scraped this data. We are currently using John Ruf's data, supplemented with 2023 data we scraped ourselves.
             </li>
             <li>
               The standard menu item descriptions and cost information comes from the

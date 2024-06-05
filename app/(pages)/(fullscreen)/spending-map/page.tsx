@@ -3,7 +3,7 @@ import { Metadata } from "next"
 import { getProjectCenterCoordinates, getProjectDataFromCoordinates } from "@/app/lib/maps";
 
 export const metadata: Metadata = {
-  title: 'Map',
+  title: 'Spending Map',
 };
 
 // SSR must be disabled explicity or webpack throws a reference error (non-breaking)
@@ -14,7 +14,7 @@ const ProjectMap = dynamic(() => import("@/app/components/ui/map/ProjectMap"), {
 export default async function Maps({
   searchParams,
 }: {
-    searchParams?: { lat?: string; long?: string, projectId?: string };
+  searchParams?: { lat?: string; long?: string, projectId?: string };
 }) {
 
   const defaultCoords = [41.91946055, -87.69612918];
