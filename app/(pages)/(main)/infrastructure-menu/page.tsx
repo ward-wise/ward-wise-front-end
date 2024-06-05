@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Spending Menu',
+  title: 'Infrastructure Menu',
 };
 
 export default async function SpendingMenu() {
@@ -15,10 +15,10 @@ export default async function SpendingMenu() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="flex flex-col z-10 max-w-5xl w-full">
         <h1 className="text-2xl font-bold mt-2 mb-4">
-          Aldermanic Spending Menu
+          Neighborhood Infrastructure Menu
         </h1>
         <p>
-          Each year, CDOT and OBM provide alders a list of standard menu items. Alders select items from this list to allocate their $1.5 million budget. Costs are estimated based on previous years&apos; costs.
+          Each year, CDOT and OBM provide alders a menu of standard neighborhood infrastructure projects. Alders select items from this menu to allocate their $1.5 million budget. Costs are estimated based on previous years&apos; costs.
         </p>
         <div>
           <p className='text-center my-6 mt-10 italic'>

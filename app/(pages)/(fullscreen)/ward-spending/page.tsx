@@ -22,9 +22,9 @@ export default async function WardSpending({
   const wardSpendingItems = await getSpendingItems({ward, year});
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex flex-col items-center justify-between">
       <div className="z-10 max-w-5xl w-full">
-        <div className="flex justify-start mb-6">
+        <div className="flex justify-center mt-8 mb-12">
           <WardSelect />
           <YearSelect />
         </div>
