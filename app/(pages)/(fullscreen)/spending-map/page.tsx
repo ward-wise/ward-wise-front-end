@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: 'Maps',
+  title: 'Spending Map',
 };
 
 const testGeoJson: any = {

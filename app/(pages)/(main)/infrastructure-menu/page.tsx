@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Neighborhood Infrastructure Menu',
+  title: 'Infrastructure Menu',
 };
 
 export default async function SpendingMenu() {
