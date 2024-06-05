@@ -1,5 +1,5 @@
 "use client";
-import { Ref, useState } from "react";
+import { Ref, useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import AddressSearchBar from "./AddressSearchBar";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
@@ -13,25 +13,25 @@ import "leaflet-defaulticon-compatibility";
 //   ssr: false,
 // });
 
-const defaultCoords = [41.91946055, -87.69612918];
-
 export default function ProjectMap({
     geoJSON,
     latitude,
     longitude,
 }: {
     geoJSON: any;
-    latitude?: string; 
-    longitude?: string;
+    latitude: number; 
+    longitude: number;
 }) {
     const [selectedFeature, setSelectedFeature] = useState(null);
-    //If there are search params for the centering coordinates, use them
-    const [lat, long] =
-        latitude && longitude
-            ? [+latitude, +longitude]
-            : defaultCoords;
+    const [map, setMap] = useState<any>(null);
 
-    const [map, setMap] = useState<any>(null)
+    const geoJsonLayer: any = useRef(null);
+    useEffect(() => {
+        if (geoJsonLayer.current) {
+            geoJsonLayer.current.clearLayers().addData(geoJSON);
+        }
+    }, [geoJSON]);
+
 
     function onEachFeature(feature: any, layer: any) {
         if (feature.properties) {
@@ -63,7 +63,7 @@ export default function ProjectMap({
             <AddressSearchBar map={map} />
             <div className="w-full h-full z-0">
                 <MapContainer
-                    center={[lat, long]}
+                    center={[latitude, longitude]}
                     zoom={16}
                     zoomControl={false}
                     style={{ height: "100%", width: "100%", zIndex: 0 }}
@@ -74,6 +74,7 @@ export default function ProjectMap({
                         url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
                     />
                     <GeoJSON
+                        ref={geoJsonLayer}
                         data={geoJSON}
                         onEachFeature={onEachFeature}
                     />
