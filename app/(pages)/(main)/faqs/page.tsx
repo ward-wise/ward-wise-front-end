@@ -80,7 +80,7 @@ export default function FAQs() {
           </p>
         </FAQ>
 
-        <FAQ title={"What is participatory budgeting?"}>
+        <FAQ title={"What is participatory budgeting?"} id="participatory-budgeting">
           <p>
             Participatory budgeting (PB) is the practice of having the community
             directly decide how to spend public budgets.
@@ -106,21 +106,8 @@ export default function FAQs() {
           </Hyperlink>
         </FAQ>
 
-        <FAQ title={"What is Vision Zero?"}>
+        <FAQ title={"How can I influence menu funds and infrastructure spending in my ward?"} id="how-to-influence">
           <p className="mb-4">
-            Vision Zero is an effort to bring the number of yearly traffic fatalities down to zero.
-            Menu items that make streets safer are denoted with the Vision Zero
-            logo in the menu item list. 
-            <br />
-          </p>
-          <Hyperlink href="https://activetrans.org/our-work/walking/vision-zero">
-            Vision Zero Overview
-          </Hyperlink>
-        </FAQ>
-
-        <FAQ title={"How can I influence menu funds and infrastructure spending in my ward?"}>
-          <p className="mb-4">
-            {/* TODO: should link Find My Ward tool here */}
             Reach out to your ward office! You can use our <Hyperlink href="find-my-ward">Find My Ward tool</Hyperlink> to get their contact information. If
             your ward does participatory budgeting, ask how you can be involved. If
             not, don&apos;t despair! You can still contact your alder to discuss
@@ -149,6 +136,18 @@ export default function FAQs() {
             </li>
           </ul>
         </FAQ >
+
+        <FAQ title={"What is Vision Zero?"} id="vision-zero">
+          <p className="mb-4">
+            Vision Zero is an effort to bring the number of yearly traffic fatalities down to zero.
+            Menu items that make streets safer are denoted with the Vision Zero
+            logo in the menu item list.
+            <br />
+          </p>
+          <Hyperlink href="https://activetrans.org/our-work/walking/vision-zero">
+            Vision Zero Overview
+          </Hyperlink>
+        </FAQ>
 
         <FAQ title={"Where does your data come from?"}>
           <ul className="ml-8 space-y-2 list-disc">
@@ -207,10 +206,10 @@ export default function FAQs() {
   );
 }
 
-function FAQ({ title, children }: { title: string, children: any }) {
+function FAQ({ title, id, children }: { title: string, id?: string, children: any }) {
   return (
     <div className="mb-20 mt-4">
-      <h2 className="font-bold text-lg">{title}</h2>
+      <h2 className="font-bold text-lg" id={id}>{title}</h2>
       <div className="my-2">
         {children}
       </div>

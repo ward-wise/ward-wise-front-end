@@ -22,7 +22,7 @@ export default function Home() {
       </div>
 
       {/* Content sections */}
-      <div className="w-full max-w-prose space-y-60 mb-36 px-6">
+      <div className="w-full max-w-prose space-y-60 mb-36 px-6 text-center">
         <section>
           <p className="text-lg">
             Chicago spends $75 million a year on neighborhood infrastructure improvements like sidewalk repairs, residential street resurfacing, and bike lanes.
@@ -48,11 +48,13 @@ export default function Home() {
         </section>
 
         <section>
-          <img
-            src={`/images/homepage/infrastructure-menu-screenshot.png`}
-            alt="Items on the Infrastructure Menu"
-            className="object-contain mb-16 md:max-w-md mx-auto"
-          />
+          <Link href="/infrastructure-menu">
+            <img
+              src={`/images/homepage/infrastructure-menu-screenshot.png`}
+              alt="Items on the Infrastructure Menu"
+              className="object-contain mb-16 md:max-w-md mx-auto"
+            />
+          </Link>
           <p className="text-lg">
             CDOT sends ward offices a <b>neighborhood infrastructure menu</b>.
           </p>
@@ -88,19 +90,22 @@ export default function Home() {
         </section>
 
         <section>
-          <p className="text-lg">
+          <p className="text-4xl mb-16 font-bold leading-normal">
             You can influence infrastructure spending in your ward!
           </p>
-          <p className="text-lg mt-4">
-            Get involved with <b>participatory budgeting</b> or <b>speak directly with your alder</b>.
+          <p className="text-lg">
+            Get involved with <b>participatory budgeting</b>
+          </p>
+          <p className="text-lg">
+            or <b>speak directly with your alder</b>.
           </p>
           <p className="text-lg mt-6">
-            <Hyperlink href="/faqs">
+            <Hyperlink href="/faqs#participatory-budgeting">
               Learn about participatory budgeting
             </Hyperlink>
           </p>
           <p className="text-lg mt-6">
-            <Hyperlink href="/find-my-ward">
+            <Hyperlink href="/faqs#how-to-influence">
               Contact your alder
             </Hyperlink>
           </p>
