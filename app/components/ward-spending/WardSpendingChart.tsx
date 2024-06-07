@@ -82,8 +82,8 @@ function Bars({
           <rect
             onClick={() => setSelectedCategory(category)}
             className={`${
-              category === selectedCategory ? "fill-teal-300" : "fill-teal-600"
-            } cursor-pointer hover:fill-teal-300`}
+              category === selectedCategory ? "fill-sky-300" : "fill-blue-500"
+            } cursor-pointer hover:fill-sky-300`}
             x={0}
             y={scaleY(category)}
             rx={2}

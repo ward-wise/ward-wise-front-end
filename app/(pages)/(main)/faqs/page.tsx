@@ -7,12 +7,12 @@ export const metadata: Metadata = {
 
 export default function FAQs() {
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col py-6 mx-6">
       <div className="max-w-prose">
-        <h1 className="text-4xl mt-4 lg:mt-8 mb-16">Frequently Asked Questions</h1>
+        <h1 className="text-4xl mt-4 lg:mt-8 mb-12">Frequently Asked Questions</h1>
 
 
-        <FAQ title={"What is a ward?"}>
+        <FAQ title={"What is a ward?"} id="ward">
           <p className="mb-4">
             The city of Chicago is divided into 50 legislative areas, called
             &quot;wards&quot;. Each ward contains roughly 50,000 residents, and can
@@ -25,7 +25,7 @@ export default function FAQs() {
         </FAQ>
 
 
-        <FAQ title={"What is an alder?"}>
+        <FAQ title={"What is an alder?"} id="alder">
           <p className="mb-4">
             Each ward elects an alder, who is essentially a mini-mayor. They provide
             ward services and vote on citywide legislation in the Chicago City
@@ -36,7 +36,7 @@ export default function FAQs() {
           </Hyperlink>
         </FAQ>
 
-        <FAQ title={"What are aldermanic menu funds?"}>
+        <FAQ title={"What are aldermanic menu funds?"} id="menu-funds">
           <div className="mb-10">
             <p>
               &quot;Every year, the City of Chicago allocates &apos;menu money&apos;
@@ -80,7 +80,7 @@ export default function FAQs() {
           </p>
         </FAQ>
 
-        <FAQ title={"What is participatory budgeting?"}>
+        <FAQ title={"What is participatory budgeting?"} id="participatory-budgeting">
           <p>
             Participatory budgeting (PB) is the practice of having the community
             directly decide how to spend public budgets.
@@ -106,21 +106,8 @@ export default function FAQs() {
           </Hyperlink>
         </FAQ>
 
-        <FAQ title={"What is Vision Zero?"}>
+        <FAQ title={"How can I influence menu funds and infrastructure spending in my ward?"} id="how-to-influence">
           <p className="mb-4">
-            Vision Zero is an effort to bring the number of yearly traffic fatalities down to zero.
-            Menu items that make streets safer are denoted with the Vision Zero
-            logo in the menu item list. 
-            <br />
-          </p>
-          <Hyperlink href="https://activetrans.org/our-work/walking/vision-zero">
-            Vision Zero Overview
-          </Hyperlink>
-        </FAQ>
-
-        <FAQ title={"How can I influence menu funds and infrastructure spending in my ward?"}>
-          <p className="mb-4">
-            {/* TODO: should link Find My Ward tool here */}
             Reach out to your ward office! You can use our <Hyperlink href="find-my-ward">Find My Ward tool</Hyperlink> to get their contact information. If
             your ward does participatory budgeting, ask how you can be involved. If
             not, don&apos;t despair! You can still contact your alder to discuss
@@ -150,7 +137,19 @@ export default function FAQs() {
           </ul>
         </FAQ >
 
-        <FAQ title={"Where does your data come from?"}>
+        <FAQ title={"What is Vision Zero?"} id="vision-zero">
+          <p className="mb-4">
+            Vision Zero is an effort to bring the number of yearly traffic fatalities down to zero.
+            Menu items that make streets safer are denoted with the Vision Zero
+            logo in the menu item list.
+            <br />
+          </p>
+          <Hyperlink href="https://activetrans.org/our-work/walking/vision-zero">
+            Vision Zero Overview
+          </Hyperlink>
+        </FAQ>
+
+        <FAQ title={"Where does your data come from?"} id="data">
           <ul className="ml-8 space-y-2 list-disc">
             <li>
               Since 2012, the Chicago Office of Budget and Management (OBM) has published
@@ -207,9 +206,9 @@ export default function FAQs() {
   );
 }
 
-function FAQ({ title, children }: { title: string, children: any }) {
+function FAQ({ title, id, children }: { title: string, id?: string, children: any }) {
   return (
-    <div className="mb-20 mt-4">
+    <div className="mb-20 mt-4 scroll-mt-36" id={id}>
       <h2 className="font-bold text-lg">{title}</h2>
       <div className="my-2">
         {children}
