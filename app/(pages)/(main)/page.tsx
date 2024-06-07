@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import WardSearch from "@/app/components/ui/find-my-ward/WardSearch";
 import FindMyWard from "./find-my-ward/page";
 import Hero from "@/app/components/ui/Hero";
@@ -20,20 +22,25 @@ export default function Home() {
       </div>
 
       {/* Content sections */}
-      <div className="w-full max-w-prose space-y-36 mb-36 px-6">
+      <div className="w-full max-w-prose space-y-60 mb-36 px-6">
         <section>
           <p className="text-lg">
             Chicago spends $75 million a year on neighborhood infrastructure improvements like sidewalk repairs, residential street resurfacing, and bike lanes.
-            Who decides where and how the money is spent? 
+            Who decides where and how the money is spent?
           </p>
-          <p className="text-lg text-center my-4">
+          <p className="text-lg text-center my-16">
             <b>Scroll down to find out!</b>
           </p>
         </section>
 
         <section>
+          <img
+            src={`/images/homepage/chicago-ward-outlines.png`}
+            alt="Map of Chicago Wards"
+            className="object-contain mb-8 md:max-w-md mx-auto"
+          />
           <h2 className="text-lg">Chicago is split up into 50 <b>wards</b>. Each ward elects an <b>alder</b>.</h2>
-          <p className="text-lg">
+          <p className="text-lg mt-6">
             <Hyperlink href="/find-my-ward">
               Find your ward and alder
             </Hyperlink>
@@ -41,10 +48,15 @@ export default function Home() {
         </section>
 
         <section>
+          <img
+            src={`/images/homepage/infrastructure-menu-screenshot.png`}
+            alt="Items on the Infrastructure Menu"
+            className="object-contain mb-16 md:max-w-md mx-auto"
+          />
           <p className="text-lg">
             CDOT sends ward offices a <b>neighborhood infrastructure menu</b>.
           </p>
-          <p className="text-lg">
+          <p className="text-lg mt-6">
             <Hyperlink href="/infrastructure-menu">
               View the 2023 neighborhood infrastructure menu
             </Hyperlink>
@@ -52,14 +64,23 @@ export default function Home() {
         </section>
 
         <section>
+          <img
+            src={`/images/homepage/spending-chart-example.png`}
+            alt="Alder Ward Spending Chart Example"
+            className="object-contain mb-8"
+          />
           <p className="text-lg">
-            Every year, each ward receives a $1.5 million budget for <b>“menu money”</b> through the aldermanic menu program. <b>Alders decide how to spend this money</b> on neighborhood infrastructure in their ward, choosing between menu and non-menu projects.
+            Every year, each ward receives a $1.5 million budget for <b>“menu money”</b> through the aldermanic menu program.
           </p>
-          <p className="text-lg">
+          <p className="text-lg mt-4">
+            <b>Alders decide how to spend this money</b> on neighborhood infrastructure in their ward, choosing between menu and non-menu projects.
+          </p>
+          <p className="text-lg mt-6">
             <Hyperlink href="/ward-spending">
               View ward spending breakdowns
             </Hyperlink>
-            <br />
+          </p>
+          <p className="text-lg mt-6">
             <Hyperlink href="/spending-map">
               See spending on a map
             </Hyperlink>
@@ -68,13 +89,17 @@ export default function Home() {
 
         <section>
           <p className="text-lg">
-            You can influence infrastructure spending in your ward! Get involved with <b>participatory budgeting</b> or <b>speak directly with your alder</b>.
+            You can influence infrastructure spending in your ward!
           </p>
-          <p className="text-lg">
+          <p className="text-lg mt-4">
+            Get involved with <b>participatory budgeting</b> or <b>speak directly with your alder</b>.
+          </p>
+          <p className="text-lg mt-6">
             <Hyperlink href="/faqs">
               Learn about participatory budgeting
             </Hyperlink>
-            <br />
+          </p>
+          <p className="text-lg mt-6">
             <Hyperlink href="/find-my-ward">
               Contact your alder
             </Hyperlink>
@@ -83,11 +108,12 @@ export default function Home() {
 
         <section>
           <h2 className="text-lg">Want to know more?</h2>
-          <p className="text-lg">
+          <p className="text-lg mt-6">
             <Hyperlink href="/faqs">
               Read our frequently asked questions
             </Hyperlink>
-            <br />
+          </p>
+          <p className="text-lg mt-6">
             <Hyperlink href="/about">
               Read about the Ward Wise project
             </Hyperlink>
