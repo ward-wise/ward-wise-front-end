@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   );
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between py-6 px-6 md:px-32">
       <div className="flex flex-col z-10 max-w-5xl w-full mb-16">
         <div className="lg:grid lg:grid-cols-2 lg:gap-4">
           <div className="flex w-full pb-8 justify-center">

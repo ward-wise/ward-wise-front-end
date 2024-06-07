@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function FAQs() {
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col py-6 mx-6">
       <div className="max-w-prose">
-        <h1 className="text-4xl mt-4 lg:mt-8 mb-16">Frequently Asked Questions</h1>
+        <h1 className="text-4xl mt-4 lg:mt-8 mb-12">Frequently Asked Questions</h1>
 
 
         <FAQ title={"What is a ward?"}>

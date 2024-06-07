@@ -10,23 +10,19 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     // <div className="max-w-2xl mx-auto p-6">
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between py-6 px-6">
       <div className="z-10 max-w-prose justify-between text-md">
         <div className="mb-16">
-          <h2 className="text-3xl my-4">About the project</h2>
+          <h1 className="text-4xl mt-4 lg:mt-8 mb-4">About the project</h1>
           <p>
-            Every year, Chicago alderpersons get $1.5 million in <b>menu money</b>
-            &nbsp;to spend at their discretion on capital improvements in their
+            Every year, Chicago alders get $1.5 million in menu money
+            to spend at their discretion on capital improvements in their
             ward. Our group is making menu money spending data more accessible to
-            the public and creating tools to help with&nbsp;
-            <Hyperlink href="https://www.participatepbchicago.org/pages/pbgeneralinfo">
-              participatory budgeting
-            </Hyperlink>
-            &nbsp;processes.
+            the public and creating tools to help with participatory budgeting processes.
           </p>
         </div>
-        <div className="mb-16">
-          <h2 className="text-3xl my-4">About us</h2>
+        <div className="mb-20">
+          <h2 className="text-4xl mt-8 mb-4">About us</h2>
           <p className="mb-8">
             Ward Wise is a breakout group under{" "}
             <Hyperlink href="https://chihacknight.org/">Chi Hack Night</Hyperlink>. Our source code is available
@@ -38,8 +34,8 @@ export default function About() {
             by Jake Smith and John C. Ruf.
           </p>
         </div>
-        <div className="mb-16">
-          <h2 className="text-3xl my-4">Ways to get involved</h2>
+        <div className="mb-20">
+          <h2 className="text-4xl my-8">Ways to get involved</h2>
           <ul className="list-disc ml-4">
             <li className="mb-4">
               Join the ward-wise channel on the <Hyperlink href="http://slackme.chihacknight.org/">Chi Hack Night Slack</Hyperlink> to stay up to
