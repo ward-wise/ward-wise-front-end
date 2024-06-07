@@ -5,6 +5,7 @@ import { MenuItem } from "@/app/lib/definitions";
 import { promises as fs } from "fs";
 import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export async function generateMetadata(
   { params }: { params: { id: string } },
@@ -70,7 +71,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 </p>
               </div>
               {item.isVisionZeroProject && (
-                <div className="ml-auto pt-4 pl-2 w-1/4">
+                <Link href="/faqs#vision-zero" className="ml-auto pt-4 pl-2 w-1/4">
                   <Image
                     src={`/images/vision_zero_logo.png`}
                     alt="Vision Zero Logo"
@@ -78,7 +79,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     width={100}
                     className="ml-auto"
                   />
-                </div>
+                </Link>
               )}
             </div>
             <div>
