@@ -25,6 +25,14 @@ DATABASE_URL="postgresql://USERNAME:PASSWORD@localhost:5432/wardwise?schema=publ
 
 For additional database management scripts, see `package.json`
 
+### Google Analytics Setup
+
+In the `.env.local` file, add a line with the following information:
+```
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-#####"
+```
+The Google Analytics ID is obtained by setting the site up in [Google Analytics](https://analytics.google.com/).
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -33,9 +41,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Low-fidelity Prototype
-Here is a lo-fi paper mockup of the site; consider this a rough place to start from.
-![PXL_20240110_014235957~2](https://github.com/ward-wise/ward-wise-front-end/assets/28895925/e687037f-e2f5-4452-bc0a-c31866e22e38)
-We are planning to make it a single-page scroll website, so the following is the rough layout for the same.
-![PXL_20240110_014252656~2](https://github.com/ward-wise/ward-wise-front-end/assets/28895925/b2f91a6d-076f-40ee-a703-31c23c918973)
