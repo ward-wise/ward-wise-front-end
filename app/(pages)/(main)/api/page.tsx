@@ -91,7 +91,9 @@ export default function Page () {
       </div>
     );
 }
-
+/* TODO: If we start adding routes with methods other than GET
+(Like a form to update ward contact info, or something), we will have to add
+logic to display the different endpoints. This is a quickfix with hardcoded GET styling. */
 function Endpoint({ title, id, entries }: { title: string, id?: string, entries: {description: JSX.Element; method: string; url: string}[] }) {
   return (
     <div id={id}>
