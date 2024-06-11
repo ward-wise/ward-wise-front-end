@@ -118,7 +118,7 @@ export default function FAQs() {
           <ul className="ml-8 space-y-2 mt-2 list-disc">
             <li>Sign up for your ward&apos;s newsletter! It&apos;s a great way to stay in the loop on participatory budgeting.</li>
             <li>
-              Have specific asks. Know the type of project and the exact location 
+              Have specific asks. Know the type of project and the exact location
               you&apos;re looking for. Make sure the project is reasonably priced in
               proportion to the ward budget.
             </li>
@@ -126,7 +126,7 @@ export default function FAQs() {
               Phone calls and in-person conversations are generally more impactful
               than emails. If you call your ward office, you&apos;ll likely talk with
               front office staff and they will relay your requests up the chain of
-              command. If you&apos;d like to talk directly with your alder, sign up to 
+              command. If you&apos;d like to talk directly with your alder, sign up to
               attend one of their ward nights.
             </li>
             <li>
@@ -165,9 +165,12 @@ export default function FAQs() {
             </li>
             <li>
               Our site is using raw data extracted from the OBM PDFs. Both journalist{" "}
-              <Hyperlink href="https://jakejeromesmith.wordpress.com/">Jake Smith</Hyperlink> and 
-              researcher <Hyperlink href="https://github.com/JohnCRuf">John Ruf</Hyperlink> independently 
+              <Hyperlink href="https://jakejeromesmith.wordpress.com/">Jake Smith</Hyperlink> and
+              researcher <Hyperlink href="https://github.com/JohnCRuf">John Ruf</Hyperlink> independently
               scraped this data. We are currently using John Ruf&apos;s data, supplemented with 2023 data we scraped ourselves.
+            </li>
+            <li>
+              Ward contact information was independently gathered by members of the Ward Wise team.
             </li>
             <li>
               The standard menu item descriptions and cost information comes from the
@@ -175,6 +178,10 @@ export default function FAQs() {
               to ward offices.
             </li>
           </ul>
+        </FAQ>
+
+        <FAQ title="Can I use your data?">
+          <p>Yes! The data collected and assembled by Ward Wise can be accessed through our <Hyperlink href="/api">API</Hyperlink>.</p>
         </FAQ>
 
         <FAQ title={"Can I get involved with Ward Wise?"}>
