@@ -1,6 +1,6 @@
 export default function Page () {
     return (
-      <div className="p-12 flex flex-col gap-8">
+      <div className="p-4 sm:p-12 flex flex-col gap-8">
         <h1 className="text-xl text-center font-bold">API Documentation</h1>
         <p>
           Welcome to the Ward Wise API. This is a JSON API which provides data
@@ -57,13 +57,13 @@ export default function Page () {
           </div>
         </div>
 
-        <p className="text-center">
+        <p className="text-center text-sm md:w-1/2 md:mx-auto">
           Having trouble getting the information you want? Have an idea for
           another way that we could use or provide access to our data? Drop us a
           line on{" "}
-          <a href="https://github.com/ward-wise/ward-wise-front-end">GitHub.</a>{" "}
+          <a className="font-semibold" target="_blank" rel="noopener noreferrer" href="https://github.com/ward-wise/ward-wise-front-end">GitHub.</a>{" "}
           Having a great time using our data for something interesting? Let us
-          know that too!
+          know that, too!
         </p>
       </div>
     );
