@@ -170,7 +170,7 @@ export default function FAQs() {
               scraped this data. We are currently using John Ruf&apos;s data, supplemented with 2023 data we scraped ourselves.
             </li>
             <li>
-              Contact information for each ward has been independently gathered by members of the Ward Wise team.
+              Ward contact information was independently gathered by members of the Ward Wise team.
             </li>
             <li>
               The standard menu item descriptions and cost information comes from the
