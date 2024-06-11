@@ -1,3 +1,5 @@
+import { Hyperlink } from "@/app/components/ui/Hyperlink";
+
 export default function Page () {
     return (
       <div className="p-4 sm:p-12 flex flex-col gap-8">
@@ -6,6 +8,8 @@ export default function Page () {
           Welcome to the Ward Wise API. This is a JSON API which provides data
           gathered and processed by the Ward Wise team.
         </p>
+
+        <Hyperlink href="/faqs#data">Where does your data come from?</Hyperlink>
 
         {/* Endpoint Descriptions */}
         <div className="flex flex-col gap-8">
