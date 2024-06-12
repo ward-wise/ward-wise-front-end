@@ -18,6 +18,17 @@ a {
   box-shadow: 0 -4px 15px 0 rgb(0 0 0 / 0.1)
 }
 
+@layer utilities {
+  .spaced-scrollbar::-webkit-scrollbar {
+    width: 20px;
+}
+.spaced-scrollbar::-webkit-scrollbar-thumb {
+  background: skyblue;
+  background-clip: content-box;
+  border-left: 5px solid transparent;
+}
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
