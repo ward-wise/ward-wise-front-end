@@ -41,7 +41,7 @@ export default function DataVis({
   }
 
   return (
-    <div className="lg:flex lg:gap-x-2">
+    <div className="lg:h-screen lg:flex lg:gap-x-2">
       <div>
         <WardSpendingChart
           data={totals}
@@ -55,7 +55,7 @@ export default function DataVis({
           selectedCategory={selectedCategory}
         />
       </div>
-      <div className="mt-2 lg:mt-0">
+      <div className="h-3/4 overflow-y-auto mt-2 lg:mt-0">
         {selectedCategory ? (
           <ItemDetailList
             spendingItems={detailedSpendingItems}
