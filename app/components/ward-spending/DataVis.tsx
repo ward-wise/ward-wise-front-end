@@ -55,7 +55,7 @@ export default function DataVis({
           selectedCategory={selectedCategory}
         />
       </div>
-      <div className="h-3/4 overflow-y-auto mt-2 lg:mt-0">
+      <div className="mt-2 lg:mt-0">
         {selectedCategory ? (
           <ItemDetailList
             spendingItems={detailedSpendingItems}
