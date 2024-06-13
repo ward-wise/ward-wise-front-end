@@ -17,7 +17,7 @@ export default function ItemDetailList({
   year: number;
 }) {
   return (
-    <div className="w-auto lg:h-3/4 lg:overflow-y-auto spaced-scrollbar mx-2">
+    <div className="w-auto lg:w-full lg:h-3/4 lg:overflow-y-auto bg-slate-100 spaced-scrollbar px-1 mx-2 border-1 rounded border-gray-400 shadow-lg">
       <h2 className="font-bold text-center mb-4">{`${category} Spending in Ward ${ward}, ${year}`}</h2>
       {!!spendingItems.length ? (
         <>

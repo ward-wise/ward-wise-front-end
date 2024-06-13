@@ -42,7 +42,7 @@ export default function DataVis({
 
   return (
     <div className="lg:h-screen lg:flex lg:gap-x-2">
-      <div>
+      <div className="flex justify-center">
         <WardSpendingChart
           data={totals}
           dimensions={
