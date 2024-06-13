@@ -20,12 +20,15 @@ a {
 
 @layer utilities {
   .spaced-scrollbar::-webkit-scrollbar {
-    width: 20px;
+    width: 12px;
 }
 .spaced-scrollbar::-webkit-scrollbar-thumb {
   background: skyblue;
   background-clip: content-box;
   border-left: 3px solid transparent;
+  border-radius: 5px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 }
 

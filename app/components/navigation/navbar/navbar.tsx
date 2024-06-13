@@ -7,7 +7,7 @@ import { MenuIcon } from "../../ui/SVGIcons";
 export default function Navbar({ toggle, menuItems }: { toggle: () => void, menuItems: MenuItem[] }){
   return (
     <>
-      <div className="w-full h-20 bg-slate-800 sticky top-0 z-40">
+      <div className="w-full h-20 bg-slate-800 fixed top-0 z-40">
         <div className="lg:container mx-auto px-8 h-full">
           <div className="flex justify-between items-center h-full">
             <Link href="/" className="flex align-middle">
