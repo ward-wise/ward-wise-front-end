@@ -3,6 +3,9 @@ import { Hyperlink } from "@/app/components/ui/Hyperlink";
 
 export const metadata: Metadata = {
   title: 'API',
+  openGraph: {
+    title: 'Ward Wise API',
+  }
 };
 
 export default function Page() {

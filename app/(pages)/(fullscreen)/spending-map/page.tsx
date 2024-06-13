@@ -4,6 +4,16 @@ import { getProjectCenterCoordinates, getProjectDataFromCoordinates } from "@/ap
 
 export const metadata: Metadata = {
   title: 'Spending Map',
+  openGraph: {
+    title: 'Ward Infrastructure Spending Map',
+    images: [
+      {
+        url: '/images/og/map-1200x630.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 // SSR must be disabled explicity or webpack throws a reference error (non-breaking)

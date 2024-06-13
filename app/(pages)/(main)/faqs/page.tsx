@@ -3,6 +3,9 @@ import { Hyperlink } from "@/app/components/ui/Hyperlink";
 
 export const metadata: Metadata = {
   title: 'FAQs',
+  openGraph: {
+    title: 'Frequently Asked Questions',
+  },
 };
 
 export default function FAQs() {

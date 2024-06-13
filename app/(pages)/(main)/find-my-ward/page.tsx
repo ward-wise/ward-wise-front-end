@@ -5,6 +5,9 @@ import AlderContactCard from "@/app/components/ui/find-my-ward/AlderContactCard"
 
 export const metadata: Metadata = {
   title: "Find My Ward",
+  openGraph: {
+    title: 'Find My Ward',
+  },
 };
 
 export default function FindMyWard({
