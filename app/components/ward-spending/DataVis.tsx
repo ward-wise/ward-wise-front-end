@@ -41,7 +41,7 @@ export default function DataVis({
   }
 
   return (
-    <div className="lg:flex lg:gap-x-2">
+    <div className="lg:h-screen lg:flex lg:gap-x-2">
       <div>
         <WardSpendingChart
           data={totals}

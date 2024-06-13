@@ -109,14 +109,14 @@ function Endpoint({ title, id, entries }: { title: string, id?: string, entries:
     <div id={id}>
       <h2 className="font-bold">{title}</h2>
       {entries.map((e, i) =>
-        <>
+        <div key={e.url}>
           <div className={i > 0 ? "mt-4" : ""}>
             {e.description}
           </div>
           <span className="bg-green-400 rounded-sm px-1 text-white">{e.method}</span>
           <p className="inline ml-2 bg-slate-600 rounded-sm text-white px-4 font-mono break-all"> {e.url}
           </p>
-        </>
+        </div>
       )}
     </div>
   );
