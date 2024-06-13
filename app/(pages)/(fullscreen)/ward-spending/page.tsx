@@ -2,8 +2,19 @@ import { Metadata } from "next";
 import { WardSelect, YearSelect } from "@/app/components/ward-spending/filters";
 import { getSpendingItems, getSpendingItemTotals } from "@/app/lib/data";
 import DataVis from "@/app/components/ward-spending/DataVis";
+
 export const metadata: Metadata = {
   title: "Ward Spending",
+  openGraph: {
+    title: 'Ward Infrastructure Spending',
+    images: [
+      {
+        url: '/images/og/spending-chart-1200x630.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default async function WardSpending({

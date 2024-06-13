@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     description: 'Explore neighborhood infrastructure spending in Chicago.',
     url: 'https://www.wardwisechicago.org',
     siteName: 'Ward Wise',
-    // images: [
-    //   {
-    //     url: '/images/cover.png'
-    //     width: 800,
-    //     height: 600,
-    //   },
-    // ],
+    images: [
+      {
+        url: '/images/og/ward-wise-logo-1200x630.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
