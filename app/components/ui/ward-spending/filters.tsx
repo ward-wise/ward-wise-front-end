@@ -18,9 +18,8 @@ export function WardSelect() {
 }
 
 export function YearSelect() {
-  const years = Array.from({ length: 12 }, (_, index) =>
-    (2023 - index).toString()
-  );
+  const currentYear = 2023;
+  const years = Array.from({ length: currentYear - 2005 + 1 }, (_, index) => (currentYear - index).toString());
   return (
     <QueryDropDown
       label=""
