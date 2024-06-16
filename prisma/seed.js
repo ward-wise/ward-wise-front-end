@@ -43,10 +43,29 @@ async function seedWardSpendingItems() {
   console.log("inserted", aggregate._count.id, "ward_spending_item records");
 }
 
+async function seedSpendingMultiLocationMapping() {
+  const mappingData =
+    await getDataFromCSV(process.cwd() + '/data/2005-2023_spending_multiLocationId_mapping.csv');
+  for (const item of mappingData) {
+    item.geocodeId = +item.geocodeId;
+    item.multiLocationId = +item.multiLocationId;
+  }
+  await prisma.spending_multi_location_id_mapping.createMany({
+    data: mappingData
+  });
+
+  //for logging
+  const aggregate = await prisma.spending_multi_location_id_mapping.aggregate({
+    _count: { id: true }
+  });
+  console.log("inserted", aggregate._count.id, "spending_multi_location_id_mapping records");
+}
+
 //call DB seending functions here
 async function main() {
   await seedWardContactInfoData();
   await seedWardSpendingItems();
+  await seedSpendingMultiLocationMapping();
 }
 
 main()
