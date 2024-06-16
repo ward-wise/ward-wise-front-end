@@ -24,11 +24,13 @@ async function seedWardContactInfoData() {
 
 async function seedWardSpendingItems() {
   const wardSpendingData =
-    await getDataFromCSV(process.cwd() + '/data/2012-2023_ward_items.csv');
+    await getDataFromCSV(process.cwd() + '/data/2005-2023_ward_spending_items.csv');
     for (const item of wardSpendingData) {
       item.ward = +item.ward;
       item.year = +item.year;
       item.cost = +item.cost;
+      item.geocodeId = +item.geocodeId;
+      item.multiLocationId = +item.multiLocationId;
     }
   await prisma.ward_spending_item.createMany({
     data: wardSpendingData
