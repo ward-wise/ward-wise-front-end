@@ -60,23 +60,23 @@ export default async function AlderContactCard({
       </div>
       <div className="mt-2">
         <div className="flex flex-col gap-y-4 mt-2">
-          <p>
+          <div>
             <a className='flex items-center my-1' href={`tel:${phone}`}>
               <Phone />
               <p className='pl-4'>
                 {phone}
               </p>
             </a>
-          </p>
-          <p>
+          </div>
+          <div>
             <a className='flex items-center my-1' href={`mailto:${email}`}>
               <Envelope />
               <p className='pl-4'>
                 {email}
               </p>
             </a>
-          </p>
-          <p>
+          </div>
+          <div>
             <a className='flex items-center my-1'
               href={
                 address
@@ -89,7 +89,7 @@ export default async function AlderContactCard({
                 {address}
               </p>
             </a>
-          </p>
+          </div>
         </div>
         <div className="flex gap-2 mt-10 mb-4 item-center justify-evenly">
           {websites &&
