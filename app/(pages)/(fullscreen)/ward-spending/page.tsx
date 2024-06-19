@@ -43,7 +43,7 @@ export default async function WardSpending({
             href={`/find-my-ward?ward=${ward}`}
             className="p-2 md:p-4 shadow-lg bg-sky-500 text-white text-xs font-bold rounded-md text-center max-w-20 md:max-w-96"
           >
-            Contact Alder
+            Contact Ward
           </Link>
         </div>
         <DataVis
