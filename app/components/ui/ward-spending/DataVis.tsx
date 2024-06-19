@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import useResizeObserver from "use-resize-observer";
 import WardSpendingChart from "./WardSpendingChart";
 import ItemDetailList from "./ItemDetailList";
 import { SpendingItemTotal, WardSpendingItem } from "@/app/lib/definitions";
 
-const MD_CHART_DIMENSIONS = { x: 650, y: 500 };
-const MOBILE_CHART_DIMENSIONS = { x: 350, y: 400 };
+const MD_CHART_DIMENSIONS = { width: 800, height: 500 };
+const MOBILE_CHART_DIMENSIONS = { width: 350, height: 400 };
 
 /* DataVis
 Stateful client component for rendering the Ward Spending bar chart and
@@ -19,17 +20,21 @@ ward-spending/page.tsx -> DataVis -> {WardSpendingChart, ItemDetailList}
 export default function DataVis({
   totals,
   spendingItems,
-  max,
   ward,
   year,
 }: {
   totals: SpendingItemTotal[];
   spendingItems: WardSpendingItem[];
-  max: number;
   ward: number;
   year: number;
 }) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const initialDimensions = window.innerWidth < 576 ? MOBILE_CHART_DIMENSIONS : MD_CHART_DIMENSIONS
+
+  const { ref, width = initialDimensions.width, height = initialDimensions.height = 500 } = useResizeObserver<HTMLDivElement>();
+
+  // const menuBudget = year > 2021 ? 1500000 : 1320000;
 
   //Generate a filtered list of spending items for ward/year/category,
   //sorted by cost, desc.
@@ -41,21 +46,17 @@ export default function DataVis({
   }
 
   return (
-    <div className="lg:h-[75vh] lg:flex lg:gap-x-2">
-      <div className="flex justify-center">
+    <div className="lg:h-[75vh] lg:flex lg:gap-x-2 max-w-[1600px]">
+      <div className="flex flex-col justify-center" ref={ref}>
+        {/* <p className="text-center mb-4 font-bold">{`Total Ward Spending Menu Budget: $${menuBudget.toLocaleString()}`}</p> */}
         <WardSpendingChart
           data={totals}
-          dimensions={
-            window.innerWidth < 576
-              ? MOBILE_CHART_DIMENSIONS
-              : MD_CHART_DIMENSIONS
-          }
-          max={max}
+          dimensions={{width, height}}
           setSelectedCategory={setSelectedCategory}
           selectedCategory={selectedCategory}
         />
       </div>
-      <div className="mt-2 lg:mt-0">
+      <div className="mt-2 lg:mt-0 lg:min-w-[300px]">
         {selectedCategory ? (
           <ItemDetailList
             spendingItems={detailedSpendingItems}

@@ -27,7 +27,6 @@ export default async function WardSpending({
 }) {
   const ward = searchParams?.ward ? +searchParams.ward : 1;
   const year = searchParams?.year ? +searchParams.year : 2023;
-  const max = year > 2021 ? 1500000 : 1320000;
 
   const wardSpendingTotals = await getSpendingItemTotals(ward, year);
   const wardSpendingItems = await getSpendingItems({ward, year});
@@ -41,7 +40,6 @@ export default async function WardSpending({
         </div>
         <DataVis
           totals={wardSpendingTotals}
-          max={max}
           spendingItems={wardSpendingItems}
           ward={ward}
           year={year}

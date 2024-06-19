@@ -107,13 +107,11 @@ function Bars({
 export default function WardSpendingChart({
   data,
   dimensions,
-  max,
   setSelectedCategory,
   selectedCategory,
 }: {
   data: { category: string; total: number }[];
-  dimensions: { x: number; y: number };
-  max: number;
+  dimensions: { width: number; height: number };
   setSelectedCategory: Dispatch<SetStateAction<string | null>>;
   selectedCategory: string | null;
 }) {
@@ -121,18 +119,14 @@ export default function WardSpendingChart({
     top: -2,
     right: 60,
     bottom: 0,
-    left: window.innerWidth < 576 ? 100 : 190,
+    left: dimensions.width <= 350 ? 100 : 190,
   };
-  const width = dimensions.x - margin.left - margin.right;
-  const height = dimensions.y - margin.top - margin.bottom;
+  const width = Math.floor(dimensions.width) - margin.left - margin.right;
+  const height = Math.floor(dimensions.height) - margin.top - margin.bottom;
 
-  //On mobile, make the scale based on highest expenditure
-  //(Based on total budget by default)
-   if (window.innerWidth < 576) {
-     max = Math.max(...data.map((item) => item.total)) *1.2;
-   }
-
-  const scaleX = scaleLinear().domain([0, max]).range([0, width]);
+  const scaleX = scaleLinear()
+    .domain([0, Math.max(...data.map((item) => item.total)) * 1.2])
+    .range([0, width]);
 
   const scaleY = scaleBand()
     .domain(data.map(({ category }) => category))
