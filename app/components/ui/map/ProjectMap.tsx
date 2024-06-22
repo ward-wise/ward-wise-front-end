@@ -1,11 +1,12 @@
-"use client";
-import { Ref, useEffect, useRef, useState } from "react";
-import ProjectCard from "./ProjectCard";
-import AddressSearchBar from "./AddressSearchBar";
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
-import "leaflet-defaulticon-compatibility";
+'use client'
+import { Ref, useEffect, useRef, useState } from 'react'
+import ProjectCard from './ProjectCard'
+import AddressSearchBar from './AddressSearchBar'
+import MapFilter from './MapFilter'
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
+import 'leaflet-defaulticon-compatibility'
 
 // SSR must be disabled explicity or webpack throws a reference error (non-breaking)
 // import dynamic from "next/dynamic";
