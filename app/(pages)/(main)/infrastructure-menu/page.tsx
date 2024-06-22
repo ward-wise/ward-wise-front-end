@@ -5,6 +5,16 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'Infrastructure Menu',
+  description: "View CDOT's neighborhood infrastructure menu.",
+  openGraph: {
+    title: 'Neighborhood Infrastructure Menu',
+    description: "View CDOT's neighborhood infrastructure menu.",
+    images: [
+      {
+        url: '/images/og/infrastructure-menu-1200x630.png',
+      },
+    ],
+  },
 };
 
 export default async function SpendingMenu() {

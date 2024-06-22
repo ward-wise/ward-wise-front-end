@@ -119,7 +119,7 @@ export default function WardSpendingChart({
 }) {
   const margin = {
     top: -2,
-    right: 32,
+    right: 60,
     bottom: 0,
     left: window.innerWidth < 576 ? 100 : 190,
   };

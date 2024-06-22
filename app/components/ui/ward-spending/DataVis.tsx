@@ -41,8 +41,8 @@ export default function DataVis({
   }
 
   return (
-    <div className="lg:flex lg:gap-x-2">
-      <div>
+    <div className="lg:h-[75vh] lg:flex lg:gap-x-2">
+      <div className="flex justify-center">
         <WardSpendingChart
           data={totals}
           dimensions={

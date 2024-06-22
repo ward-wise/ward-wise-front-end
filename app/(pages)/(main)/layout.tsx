@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navigation />
-      <div className="flex-grow">
+      <div className="flex-grow mt-20">
         {children}
       </div>
       <Footer />

@@ -5,6 +5,9 @@ import { Hyperlink } from "@/app/components/ui/Hyperlink";
 
 export const metadata: Metadata = {
   title: 'About',
+  openGraph: {
+    title: 'About Ward Wise',
+  },
 };
 
 export default function About() {
