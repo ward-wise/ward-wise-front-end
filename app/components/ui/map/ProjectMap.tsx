@@ -58,29 +58,30 @@ export default function ProjectMap({
         }
     }
 
-    return (
-        <>
-            <AddressSearchBar map={map} />
-            <div className="w-full h-full z-0">
-                <MapContainer
-                    center={[latitude, longitude]}
-                    zoom={16}
-                    zoomControl={false}
-                    style={{ height: "100%", width: "100%", zIndex: 0 }}
-                    ref={setMap}
-                >
-                    <TileLayer
-                        attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-                        url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
-                    />
-                    <GeoJSON
-                        ref={geoJsonLayer}
-                        data={geoJSON}
-                        onEachFeature={onEachFeature}
-                    />
-                </MapContainer>
-            </div>
-            {selectedFeature && <ProjectCard project={selectedFeature} />}
-        </>
-    );
+  return (
+    <>
+      <AddressSearchBar map={map} />
+      <MapFilter />
+      <div className="w-full h-full z-0">
+        <MapContainer
+          center={[latitude, longitude]}
+          zoom={16}
+          zoomControl={false}
+          style={{ height: '100%', width: '100%', zIndex: 0 }}
+          ref={setMap}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+            url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+          />
+          <GeoJSON
+            ref={geoJsonLayer}
+            data={geoJSON}
+            onEachFeature={onEachFeature}
+          />
+        </MapContainer>
+      </div>
+      {selectedFeature && <ProjectCard project={selectedFeature} />}
+    </>
+  )
 }
