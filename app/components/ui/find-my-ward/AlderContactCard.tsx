@@ -11,6 +11,7 @@ import {
   FacebookLogo,
   XLogo,
   InstagramLogo,
+  YouTubeLogo,
 } from "../SVGIcons";
 
 /** AlderContactCard:
@@ -40,6 +41,7 @@ export default async function AlderContactCard({
     facebook: <FacebookLogo />,
     x: <XLogo />,
     instagram: <InstagramLogo />,
+    youtube: <YouTubeLogo />,
   };
 
   return (

@@ -48,7 +48,8 @@ export async function getProjectDataFromCoordinates(latitude: number, longitude:
         ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326)::geography,
         ST_SetSRID(ST_GeomFromWKB(wkb_geometry), 4326)::geography,
         ${mileInMeters}
-      );
+      )
+      AND hide_from_map = FALSE;
     `;
 
         const geoJSON = projects.map((project: any) => ({
