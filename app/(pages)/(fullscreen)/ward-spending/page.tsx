@@ -36,7 +36,7 @@ export default async function WardSpending({
   return (
     <main className="flex flex-col items-center justify-between">
       <div className="z-10 max-w-5xl w-full">
-        <div className="flex justify-center items-center mt-8 mb-2">
+        <div className="flex justify-center items-center mt-8 mb-12">
           <WardSelect />
           <YearSelect />
           <Link
@@ -46,7 +46,7 @@ export default async function WardSpending({
             Contact Ward
           </Link>
         </div>
-        <p className="text-center text-sm md:text-base mb-2 lg:mb-6 font-bold">{`Total Ward Spending Menu Budget: $${menuBudget.toLocaleString()}`}</p>
+        {/* <p className="text-center text-sm md:text-base mb-2 lg:mb-6 font-bold">{`$${menuBudget.toLocaleString()} Budget`}</p> */}
         <DataVis
           totals={wardSpendingTotals}
           spendingItems={wardSpendingItems}
