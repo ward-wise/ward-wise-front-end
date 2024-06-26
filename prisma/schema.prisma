@@ -25,7 +25,16 @@ model ward_spending_item {
   ward Int
   year Int
   item String
+  description String
   category String
   location String
   cost Int
+  geocodeId Int
+  multiLocationId Int
+}
+
+model spending_multi_location_id_mapping {
+  id Int @id @default(autoincrement())
+  multiLocationId Int
+  geocodeId Int
 }
