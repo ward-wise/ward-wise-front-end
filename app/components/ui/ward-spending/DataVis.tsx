@@ -7,7 +7,7 @@ import ItemDetailList from "./ItemDetailList";
 import { SpendingItemTotal, WardSpendingItem } from "@/app/lib/definitions";
 
 const MD_CHART_DIMENSIONS = { width: 800, height: 500 };
-const MOBILE_CHART_DIMENSIONS = { width: 350, height: 400 };
+const MOBILE_CHART_DIMENSIONS = { width: window.innerWidth, height: 400 };
 
 /* DataVis
 Stateful client component for rendering the Ward Spending bar chart and
@@ -34,8 +34,6 @@ export default function DataVis({
 
   const { ref, width = initialDimensions.width, height = initialDimensions.height = 500 } = useResizeObserver<HTMLDivElement>();
 
-  // const menuBudget = year > 2021 ? 1500000 : 1320000;
-
   //Generate a filtered list of spending items for ward/year/category,
   //sorted by cost, desc.
   let detailedSpendingItems: WardSpendingItem[] = [];
@@ -46,12 +44,14 @@ export default function DataVis({
   }
 
   return (
-    <div className="lg:h-[75vh] lg:flex lg:gap-x-2 max-w-[1600px]">
-      <div className="flex flex-col justify-center" ref={ref}>
-        {/* <p className="text-center mb-4 font-bold">{`Total Ward Spending Menu Budget: $${menuBudget.toLocaleString()}`}</p> */}
+    <div className="lg:h-[75vh] lg:flex lg:gap-x-2">
+      <div
+        className="flex flex-col md:justify-center max-h-[66vh] lg:max-h-none lg:max-w-[calc(100%-312px)]"
+        ref={ref}
+      >
         <WardSpendingChart
           data={totals}
-          dimensions={{width, height}}
+          dimensions={{ width, height }}
           setSelectedCategory={setSelectedCategory}
           selectedCategory={selectedCategory}
         />

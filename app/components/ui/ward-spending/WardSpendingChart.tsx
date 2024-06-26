@@ -54,7 +54,7 @@ function YAxis({
           setSelectedCategory(evt.target.__data__ as string);
         });
       if (window.innerWidth < 576) {
-        select(ref.current).selectAll("text").call(wrap, 100).attr("dx", -12);
+        select(ref.current).selectAll("text").call(wrap, 80).attr("dx", -12);
       }
     }
   }, [scale, setSelectedCategory]);
@@ -117,9 +117,9 @@ export default function WardSpendingChart({
 }) {
   const margin = {
     top: -2,
-    right: 60,
+    right: dimensions.width <= 576 ? 25 : 60,
     bottom: 0,
-    left: dimensions.width <= 350 ? 100 : 190,
+    left: dimensions.width <= 576 ? 100 : 190,
   };
   const width = Math.floor(dimensions.width) - margin.left - margin.right;
   const height = Math.floor(dimensions.height) - margin.top - margin.bottom;
