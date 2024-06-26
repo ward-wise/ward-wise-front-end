@@ -46,7 +46,7 @@ export async function getProjectDataFromCoordinates(latitude: number, longitude:
       FROM public.ward_spending_item_geodata
       WHERE ST_DWithin(
         ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326)::geography,
-        ST_SetSRID(ST_GeomFromWKB(wkb_geometry), 4326)::geography,
+        wkb_geometry,
         ${mileInMeters}
       )
       AND hide_from_map = FALSE;
