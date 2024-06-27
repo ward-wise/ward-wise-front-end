@@ -58,11 +58,12 @@ export function QueryDropDown({
 
   return (
     <div className="relative flex items-baseline w-32">
-      <label htmlFor={label} className="mx-4">
+      {!!label && <label htmlFor={label} className="mx-4">
         {label}
-      </label>
+      </label>}
       <div className="relative">
         <select
+          id={label || "select-element"}
           className="bg-white"
           value={searchParams.get(queryParam)?.toString() || defaultValue || ""}
           onChange={handleChange}
