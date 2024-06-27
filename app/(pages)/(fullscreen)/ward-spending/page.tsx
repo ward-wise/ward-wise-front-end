@@ -36,7 +36,7 @@ export default async function WardSpending({
   return (
     <main className="flex flex-col items-center justify-between">
       <div className="z-10 max-w-5xl w-full">
-        <div className="flex justify-center items-center mt-8 mb-12">
+        <div className="flex justify-center items-center mt-8 mb-6 md:mb-8">
           <WardSelect />
           <YearSelect />
           <Link
