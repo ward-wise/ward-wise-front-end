@@ -44,6 +44,7 @@ function YAxis({
   setSelectedCategory: Dispatch<SetStateAction<string | null>>;
 }) {
   const ref = useRef<SVGGElement>(null);
+  const numCategories = scale.domain().length;
   useEffect(() => {
     if (ref.current) {
       select(ref.current)
@@ -54,12 +55,12 @@ function YAxis({
           setSelectedCategory(evt.target.__data__ as string);
         });
       if (window.innerWidth < 576) {
-        select(ref.current).selectAll("text").call(wrap, 80).attr("dx", -12);
+        select(ref.current).selectAll("text").call(wrap, 85).attr("dx", (numCategories < 10 ? -12 : -10));
       }
     }
-  }, [scale, setSelectedCategory]);
+  }, [scale, setSelectedCategory, numCategories]);
 
-  return <g className="text-sm md:text-base" ref={ref} />;
+  return <g className={`${numCategories < 10 ? "text-sm" : "text-xs"} md:text-base`} ref={ref} />;
 }
 
 function Bars({
