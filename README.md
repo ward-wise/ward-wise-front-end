@@ -1,6 +1,6 @@
 # Ward Wise Frontend
 
-This is a refactored, reimagined, and expanded implementation of the current [Ward Wise frontend](https://github.com/ward-wise/alderman-spending-data-viz), built in Next.js.
+Ward Wise is a tool to help residents track, compare, and understand local municipal spending in Chicago, and get more involved in the aldermanic menu process. The site is live at [WardWiseChicago.org](https://www.wardwisechicago.org/).
 
 ## Setup
 
@@ -8,7 +8,7 @@ This is a refactored, reimagined, and expanded implementation of the current [Wa
 
 2. Install [PostgreSQL](https://www.postgresql.org/docs/current/tutorial-install.html), if you do not already have an instance installed.
 
-3. Run `createdb wardwise` in your terminal. 
+3. Run `createdb wardwise` in your terminal.
 > **Note:** If PostgreSQL was not added to your system PATH during installation, you'll need to be in the PostgreSQL `bin` directory for this command to work.
 
 4. Create a `.env.local` file in your project directory and add the below, where USERNAME and PASSWORD are the credential for:
