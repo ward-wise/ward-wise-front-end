@@ -28,7 +28,7 @@ export default async function WardSpending({
 }) {
   const ward = searchParams?.ward ? +searchParams.ward : 1;
   const year = searchParams?.year ? +searchParams.year : 2023;
-  const max = year > 2021 ? 1500000 : 1320000;
+  const menuBudget = year > 2021 ? 1500000 : 1320000;
 
   const wardSpendingTotals = await getSpendingItemTotals(ward, year);
   const wardSpendingItems = await getSpendingItems({ ward, year });
@@ -36,7 +36,7 @@ export default async function WardSpending({
   return (
     <main className="flex flex-col items-center justify-between">
       <div className="z-10 max-w-5xl w-full">
-        <div className="flex justify-center items-center mt-8 mb-12">
+        <div className="flex justify-center items-center mt-8 mb-6 md:mb-8">
           <WardSelect />
           <YearSelect />
           <Link
@@ -46,9 +46,9 @@ export default async function WardSpending({
             Contact Ward
           </Link>
         </div>
+        {/* <p className="text-center text-sm md:text-base mb-2 lg:mb-6 font-bold">{`$${menuBudget.toLocaleString()} Budget`}</p> */}
         <DataVis
           totals={wardSpendingTotals}
-          max={max}
           spendingItems={wardSpendingItems}
           ward={ward}
           year={year}

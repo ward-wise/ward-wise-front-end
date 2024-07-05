@@ -18,7 +18,7 @@ export default function ItemDetailList({
 }) {
   return (
     <div className="w-auto lg:w-full lg:h-[90%] lg:overflow-y-auto bg-slate-100 spaced-scrollbar lg:px-1 sm:mx-2 border-1 rounded border-gray-400 shadow-lg">
-      <h2 className="font-bold text-center mb-4">{`${category} Spending in Ward ${ward}, ${year}`}</h2>
+      <h2 className="font-bold text-center mb-4 px-1">{`${category} Spending in Ward ${ward}, ${year}`}</h2>
       {!!spendingItems.length ? (
         <>
           {spendingItems.map((item) => (
