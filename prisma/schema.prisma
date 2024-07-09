@@ -29,12 +29,6 @@ model ward_spending_item {
   category String
   location String
   cost Int
-  geocodeId Int
-  multiLocationId Int
-}
-
-model spending_multi_location_id_mapping {
-  id Int @id @default(autoincrement())
-  multiLocationId Int
-  geocodeId Int
+  wkb_geometry Geometry
+  geocode_location_text String
 }
