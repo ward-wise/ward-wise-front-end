@@ -18,14 +18,14 @@ export function WardSelect() {
 }
 
 export function YearSelect() {
-  const currentYear = 2023;
+  const currentYear = 2024;
   const years = Array.from({ length: currentYear - 2005 + 1 }, (_, index) => (currentYear - index).toString());
   return (
     <QueryDropDown
       label=""
       queryParam="year"
       options={years}
-      defaultValue="2023"
+      defaultValue="2024"
     />
   );
 }

@@ -27,7 +27,7 @@ export default async function WardSpending({
   };
 }) {
   const ward = searchParams?.ward ? +searchParams.ward : 1;
-  const year = searchParams?.year ? +searchParams.year : 2023;
+  const year = searchParams?.year ? +searchParams.year : 2024;
   const menuBudget = year > 2021 ? 1500000 : 1320000;
 
   const wardSpendingTotals = await getSpendingItemTotals(ward, year);
